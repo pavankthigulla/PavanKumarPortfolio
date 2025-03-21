@@ -165,7 +165,7 @@ export const SimpleGame = () => {
         x: Math.random() * (gameState.current.width - radius * 2) + radius,
         y: -radius,
         radius,
-        color: isSpecialTarget ? '#FFC107' : '#4CAF50',
+        color: isSpecialTarget ? '#FFC107' : '#4d8feb',
         speed: (1.5 + Math.random() * 1.5) * gameState.current.difficultyMultiplier, // Reduced base speed
         points: isSpecialTarget ? 25 : 10
       });
@@ -490,10 +490,10 @@ export const SimpleGame = () => {
         {!gameStarted && !gameOver && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/80 rounded-md">
             <h4 className="text-lg font-bold mb-2">Avoid Red</h4>
-            <p className="text-sm text-muted-foreground mb-4 text-center px-4">Catch green circles for points, but watch out for red obstacles!</p>
+            <p className="text-sm text-muted-foreground mb-4 text-center px-4">Catch blue circles for points, but watch out for red obstacles!</p>
             <button 
               onClick={handleStartGame}
-              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 hover-target transition-colors shadow-lg hover:shadow-primary/20"
+              className="px-4 py-2 bg-primary/80 text-white rounded hover:bg-primary/60 hover-target transition-colors shadow-lg hover:shadow-primary/20"
             >
               Start Game
             </button>
