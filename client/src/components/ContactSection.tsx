@@ -76,7 +76,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold heading-glow">Email</h3>
-                  <a href="mailto:pavank02331@gmail.com" className="text-muted-foreground hover:text-primary transition-colors hover-target">pavank02331@gmail.com</a>
+                  <p className="text-muted-foreground">Contact me using the form</p>
                 </div>
               </div>
               
