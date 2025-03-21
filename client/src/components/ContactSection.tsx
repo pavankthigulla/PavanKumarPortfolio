@@ -71,8 +71,8 @@ export const ContactSection = () => {
             
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <div className="bg-primary/20 p-3 rounded-full">
-                  <FaEnvelope className="w-6 h-6 text-primary" />
+                <div className="bg-background p-3 rounded-full">
+                  <FaEnvelope className="w-6 h-6 text-red-500" />
                 </div>
                 <div>
                   <h3 className="font-semibold heading-glow">Email</h3>
@@ -81,8 +81,8 @@ export const ContactSection = () => {
               </div>
               
               <div className="flex items-center gap-4">
-                <div className="bg-primary/20 p-3 rounded-full">
-                  <FaMapMarkerAlt className="w-6 h-6 text-primary" />
+                <div className="bg-background p-3 rounded-full">
+                  <FaMapMarkerAlt className="w-6 h-6 text-red-600" />
                 </div>
                 <div>
                   <h3 className="font-semibold heading-glow">Location</h3>
@@ -96,10 +96,10 @@ export const ContactSection = () => {
                 href="https://www.linkedin.com/in/pavan-kumar-698b65277/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="bg-background hover:bg-primary/20 p-3 rounded-full transition-all duration-300 hover-target hover:shadow-[0_0_10px_rgba(14,231,183,0.5)] transform hover:-translate-y-1"
+                className="bg-background hover:bg-background/50 p-3 rounded-full transition-all duration-300 hover-target hover:shadow-[0_0_10px_rgba(10,102,194,0.5)] transform hover:-translate-y-1"
                 aria-label="LinkedIn Profile"
               >
-                <FaLinkedin className="w-5 h-5 text-primary" />
+                <FaLinkedin className="w-5 h-5 text-[#0A66C2]" />
               </a>
             </div>
           </div>
