@@ -13,7 +13,7 @@ export const AboutSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-12 items-start">
           <div className="md:w-7/12" data-animate>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 relative">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 relative heading-glow">
               <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">About Me</span>
             </h2>
             
@@ -34,19 +34,19 @@ export const AboutSection = () => {
             
             <div className="timeline-container pt-8">
               <div className="timeline-item" data-animate>
-                <h3 className="font-display font-semibold text-lg">Software Engineer @ Edward Jones</h3>
+                <h3 className="font-display font-semibold text-lg heading-glow">Software Engineer @ Edward Jones</h3>
                 <p className="text-primary text-sm mb-2">01/2024 - Present</p>
                 <p className="text-muted-foreground text-sm leading-relaxed mt-2">Currently working with a microservices architecture to develop backend services using Spring Boot, Java, and Kafka. I design and build services that interact seamlessly, ensuring smooth data processing and reliable communication. My role also involves identifying and removing performance bottlenecks and improving how services exchange data in real time for optimal system efficiency.</p>
               </div>
               
               <div className="timeline-item" data-animate>
-                <h3 className="font-display font-semibold text-lg">Full Stack Developer @ Zemoso Technologies</h3>
+                <h3 className="font-display font-semibold text-lg heading-glow">Full Stack Developer @ Zemoso Technologies</h3>
                 <p className="text-primary text-sm mb-2">01/2022 - 05/2022</p>
                 <p className="text-muted-foreground text-sm leading-relaxed mt-2">At Zemoso, I worked on both frontend and backend development, with my main tech stack being React.js for building user interfaces and Spring Boot with Hibernate for the backend. I focused on connecting the frontend and backend to ensure everything worked smoothly while sticking to clean code practices.</p>
               </div>
               
               <div className="timeline-item" data-animate>
-                <h3 className="font-display font-semibold text-lg">Full Stack Developer @ Fagito</h3>
+                <h3 className="font-display font-semibold text-lg heading-glow">Full Stack Developer @ Fagito</h3>
                 <p className="text-primary text-sm mb-2">07/2020 - 12/2021</p>
                 <p className="text-muted-foreground text-sm leading-relaxed mt-2">As part of a small team, we handled every aspect of the food delivery platform, diving into both frontend and backend development. I worked on building backend services with Spring Boot, developing the frontend using React, integrating payment systems, and creating a smart restaurant-matching system to reduce delivery delays. We also improved the order management system, ensuring it was good enough to handle high volumes of transactions during peak times.</p>
               </div>

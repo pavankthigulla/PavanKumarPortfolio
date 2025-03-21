@@ -104,7 +104,7 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" ref={ref} className="section py-24" data-section="projects">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center" data-animate>
+        <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center heading-glow" data-animate>
           <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Featured Projects</span>
         </h2>
         
@@ -125,7 +125,7 @@ export const ProjectsSection = () => {
               
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="font-display font-semibold text-xl">{project.title}</h3>
+                  <h3 className="font-display font-semibold text-xl heading-glow">{project.title}</h3>
                 </div>
                 
                 <p className="text-muted-foreground text-sm mb-4">{project.description}</p>

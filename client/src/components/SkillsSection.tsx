@@ -58,13 +58,13 @@ export const SkillsSection = () => {
   return (
     <section id="skills" ref={ref} className="section bg-muted/30 py-24" data-section="skills">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center" data-animate>
+        <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center heading-glow" data-animate>
           <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Skills & Expertise</span>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           <div className="space-y-6" data-animate>
-            <h3 className="text-xl font-display font-semibold relative">
+            <h3 className="text-xl font-display font-semibold relative heading-glow">
               <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Frontend Development</span>
             </h3>
             
@@ -88,7 +88,7 @@ export const SkillsSection = () => {
           </div>
           
           <div className="space-y-6" data-animate>
-            <h3 className="text-xl font-display font-semibold relative">
+            <h3 className="text-xl font-display font-semibold relative heading-glow">
               <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Backend Development</span>
             </h3>
             
