@@ -52,27 +52,7 @@ export const AboutSection = () => {
             </div>
           </div>
           
-          <div className="md:w-1/2 relative" data-animate>
-            <div className="w-64 h-64 md:w-80 md:h-80 mx-auto relative animate-float">
-              <div className="absolute inset-0 bg-primary/20 rounded-lg backdrop-blur-sm"></div>
-              <div 
-                className="absolute inset-2 bg-gradient-to-br from-background to-muted border border-primary/30
-                bg-cover bg-center rounded-lg shadow-lg transform rotate-3"
-              ></div>
-              <div className="absolute -bottom-4 -right-4 bg-muted p-3 rounded shadow-lg w-40 animate-slideInRight">
-                <div className="flex items-center">
-                  <div className="w-4 h-4 rounded-full bg-primary mr-2"></div>
-                  <p className="text-xs font-code">React Expert</p>
-                </div>
-              </div>
-              <div className="absolute -top-4 -left-4 bg-muted p-3 rounded shadow-lg w-40 animate-slideInLeft">
-                <div className="flex items-center">
-                  <div className="w-4 h-4 rounded-full bg-secondary mr-2"></div>
-                  <p className="text-xs font-code">Java Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

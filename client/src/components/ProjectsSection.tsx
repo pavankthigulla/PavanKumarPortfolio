@@ -127,9 +127,6 @@ export const ProjectsSection = () => {
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="font-display font-semibold text-xl">{project.title}</h3>
                   <div className="flex gap-2">
-                    <a href={project.github} className="text-muted-foreground hover:text-primary transition-colors hover-target" aria-label="View Github repository">
-                      <Github className="w-5 h-5" />
-                    </a>
                     <a href={project.demo} className="text-muted-foreground hover:text-primary transition-colors hover-target" aria-label="View live demo">
                       <ExternalLink className="w-5 h-5" />
                     </a>
@@ -156,14 +153,7 @@ export const ProjectsSection = () => {
           ))}
         </div>
         
-        <div className="text-center" data-animate>
-          <a 
-            href="#" 
-            className="inline-block px-6 py-3 border-2 border-primary text-primary rounded-md font-medium hover:bg-primary/10 transition-all duration-300 hover-target"
-          >
-            View All Projects
-          </a>
-        </div>
+
       </div>
       
       {/* Project Modal */}

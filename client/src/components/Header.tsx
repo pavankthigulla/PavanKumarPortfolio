@@ -28,7 +28,7 @@ export const Header = () => {
     }`}>
       <div className="text-2xl font-display font-bold">
         <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">
-          Alex
+          Pavan
         </span>
         <span className="text-white">.</span>
       </div>

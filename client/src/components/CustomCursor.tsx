@@ -44,6 +44,7 @@ export const CustomCursor = () => {
 
   return (
     <>
+      {/* Main cursor */}
       <div 
         className={`fixed pointer-events-none z-50 rounded-full mix-blend-difference transition-all duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
         style={{ 
@@ -56,6 +57,19 @@ export const CustomCursor = () => {
           transition: "width 0.3s, height 0.3s, background-color 0.3s",
         }}
       />
+      
+      {/* Small ball cursor */}
+      <div 
+        className={`fixed pointer-events-none z-50 rounded-full bg-primary transition-all duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
+        style={{ 
+          transform: `translate(${position.x}px, ${position.y}px)`,
+          left: -3,
+          top: -3,
+          width: '6px',
+          height: '6px',
+        }}
+      />
+      
       <style dangerouslySetInnerHTML={{
         __html: `
           body {
