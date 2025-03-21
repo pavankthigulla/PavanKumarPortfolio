@@ -96,7 +96,7 @@ export const ContactSection = () => {
                 href="https://www.linkedin.com/in/pavan-kumar-698b65277/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="bg-background hover:bg-muted p-3 rounded-full transition-colors hover-target"
+                className="bg-background hover:bg-primary/20 p-3 rounded-full transition-all duration-300 hover-target hover:shadow-[0_0_10px_rgba(14,231,183,0.5)] transform hover:-translate-y-1"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-5 h-5 text-primary" />
@@ -107,7 +107,7 @@ export const ContactSection = () => {
           <Form {...form}>
             <form 
               onSubmit={form.handleSubmit(onSubmit)} 
-              className="space-y-4 bg-card p-6 rounded-lg shadow-lg" 
+              className="space-y-4 bg-card p-6 rounded-lg shadow-lg border border-primary/20" 
               data-animate
             >
               <FormField
@@ -119,7 +119,7 @@ export const ContactSection = () => {
                     <FormControl>
                       <Input 
                         placeholder="Your name" 
-                        className="bg-background border border-gray-700 focus:border-primary transition-colors" 
+                        className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
                         {...field} 
                       />
                     </FormControl>
@@ -137,7 +137,7 @@ export const ContactSection = () => {
                     <FormControl>
                       <Input 
                         placeholder="your.email@example.com" 
-                        className="bg-background border border-gray-700 focus:border-primary transition-colors" 
+                        className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
                         {...field} 
                       />
                     </FormControl>
@@ -155,7 +155,7 @@ export const ContactSection = () => {
                     <FormControl>
                       <Input 
                         placeholder="What's this about?" 
-                        className="bg-background border border-gray-700 focus:border-primary transition-colors" 
+                        className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
                         {...field} 
                       />
                     </FormControl>
@@ -173,7 +173,7 @@ export const ContactSection = () => {
                     <FormControl>
                       <Textarea 
                         placeholder="Your message here..." 
-                        className="bg-background border border-gray-700 focus:border-primary transition-colors" 
+                        className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
                         rows={5}
                         {...field} 
                       />
@@ -185,7 +185,7 @@ export const ContactSection = () => {
               
               <Button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary/90 text-black font-medium transition-colors hover-target"
+                className="w-full bg-primary hover:bg-primary/90 text-black font-medium transition-all duration-300 hover-target animate-glow"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
