@@ -8,7 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { FaEnvelope, FaMapMarkerAlt, FaLinkedin } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { HiLocationMarker } from "react-icons/hi";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -72,7 +73,7 @@ export const ContactSection = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="bg-background p-3 rounded-full">
-                  <FaEnvelope className="w-6 h-6 text-red-500" />
+                  <SiGmail className="w-6 h-6 text-[#EA4335]" />
                 </div>
                 <div>
                   <h3 className="font-semibold heading-glow">Email</h3>
@@ -82,25 +83,13 @@ export const ContactSection = () => {
               
               <div className="flex items-center gap-4">
                 <div className="bg-background p-3 rounded-full">
-                  <FaMapMarkerAlt className="w-6 h-6 text-red-600" />
+                  <HiLocationMarker className="w-6 h-6 text-[#4285F4]" />
                 </div>
                 <div>
                   <h3 className="font-semibold heading-glow">Location</h3>
                   <p className="text-muted-foreground">California</p>
                 </div>
               </div>
-            </div>
-            
-            <div className="flex gap-4 pt-6">
-              <a 
-                href="https://www.linkedin.com/in/pavan-kumar-698b65277/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-background hover:bg-background/50 p-3 rounded-full transition-all duration-300 hover-target hover:shadow-[0_0_10px_rgba(10,102,194,0.5)] transform hover:-translate-y-1"
-                aria-label="LinkedIn Profile"
-              >
-                <FaLinkedin className="w-5 h-5 text-[#0A66C2]" />
-              </a>
             </div>
           </div>
           

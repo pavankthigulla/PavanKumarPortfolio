@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { X, Menu } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,10 +24,22 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 px-5 py-3 flex justify-end items-center transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 w-full z-50 px-5 py-3 flex justify-between items-center transition-all duration-300 ${
       scrolled ? "bg-background/80 backdrop-blur-lg shadow-md" : "bg-transparent"
     }`}>
       
+      <div className="ml-5">
+        <a 
+          href="https://www.linkedin.com/in/pavan-kumar-698b65277/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="hover-target p-1 rounded-full transition-all duration-300 hover:shadow-[0_0_10px_rgba(10,102,194,0.5)] transform hover:-translate-y-1"
+          aria-label="LinkedIn Profile"
+        >
+          <FaLinkedin className="w-6 h-6 text-[#0A66C2]" />
+        </a>
+      </div>
+
       <nav className="hidden md:flex gap-6 mr-12">
         <a href="#home" className="nav-link font-medium hover-target relative group">
           <span className="inline-block">Home</span>
@@ -107,6 +120,19 @@ export const Header = () => {
           >
             Contact
           </a>
+          
+          <div className="pt-4 mt-4 border-t border-gray-700">
+            <a 
+              href="https://www.linkedin.com/in/pavan-kumar-698b65277/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-3 text-lg hover-target"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <FaLinkedin className="w-5 h-5 text-[#0A66C2]" />
+              LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </header>
