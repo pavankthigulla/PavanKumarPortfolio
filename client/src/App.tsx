@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import { ThemeToggle } from "./components/ThemeToggle";
+import { CustomCursor } from "./components/CustomCursor";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <CustomCursor />
       <Router />
       <ThemeToggle />
       <Toaster />

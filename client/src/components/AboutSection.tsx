@@ -41,13 +41,13 @@ export const AboutSection = () => {
               <div className="timeline-item" data-animate>
                 <h3 className="font-display font-semibold text-lg">Full Stack Developer @ Zemoso Technologies</h3>
                 <p className="text-primary text-sm mb-2">01/2022 - 05/2022</p>
-                <p className="text-muted-foreground">At Zemoso, I worked on both frontend and backend development, with my main tech stack being React.js for building user interfaces and Spring Boot with Hibernate for the backend. I focused on connecting the frontend and backend to ensure everything worked smoothly while sticking to clean code practices.</p>
+                <p className="text-muted-foreground text-sm leading-relaxed mt-2">At Zemoso, I worked on both frontend and backend development, with my main tech stack being React.js for building user interfaces and Spring Boot with Hibernate for the backend. I focused on connecting the frontend and backend to ensure everything worked smoothly while sticking to clean code practices.</p>
               </div>
               
               <div className="timeline-item" data-animate>
                 <h3 className="font-display font-semibold text-lg">Full Stack Developer @ Fagito</h3>
                 <p className="text-primary text-sm mb-2">07/2020 - 12/2021</p>
-                <p className="text-muted-foreground">As part of a small team, we handled every aspect of the food delivery platform, diving into both frontend and backend development. I worked on building backend services with Spring Boot, developing the frontend using React, integrating payment systems, and creating a smart restaurant-matching system to reduce delivery delays. We also improved the order management system, ensuring it was good enough to handle high volumes of transactions during peak times.</p>
+                <p className="text-muted-foreground text-sm leading-relaxed mt-2">As part of a small team, we handled every aspect of the food delivery platform, diving into both frontend and backend development. I worked on building backend services with Spring Boot, developing the frontend using React, integrating payment systems, and creating a smart restaurant-matching system to reduce delivery delays. We also improved the order management system, ensuring it was good enough to handle high volumes of transactions during peak times.</p>
               </div>
             </div>
           </div>
