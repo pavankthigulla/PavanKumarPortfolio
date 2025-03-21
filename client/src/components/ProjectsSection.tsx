@@ -84,7 +84,7 @@ const projects: Project[] = [
     id: 5,
     title: "SmartMed Assist – iOS Medicine Tracking",
     description: "A health-focused iOS app that helps users keep track of their medicine schedules, get timely reminders, and access basic medicine information.",
-    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    image: "https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
     tech: ["Swift (language)", "SwiftUI (for building UI)", "Firebase Firestore (data storage)", "Firebase Auth (authentication)", "Cloud Messaging (notifications)"],
     github: "https://github.com/pavankumar/smartmed-assist",
     demo: "https://apps.apple.com/demo/smartmed-assist",
