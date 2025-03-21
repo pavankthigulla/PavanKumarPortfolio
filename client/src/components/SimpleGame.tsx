@@ -151,6 +151,9 @@ export const SimpleGame = () => {
     if (!ctx) return;
 
     const spawnTarget = () => {
+      // Performance optimization: Limit max targets on screen based on level
+      if (gameState.current.targets.length > 10 + level) return;
+      
       const minRadius = 10;
       const maxRadius = 20;
       const radius = Math.random() * (maxRadius - minRadius) + minRadius;
@@ -163,16 +166,19 @@ export const SimpleGame = () => {
         y: -radius,
         radius,
         color: isSpecialTarget ? '#FFC107' : '#4CAF50',
-        speed: (2 + Math.random() * 2) * gameState.current.difficultyMultiplier,
+        speed: (1.5 + Math.random() * 1.5) * gameState.current.difficultyMultiplier, // Reduced base speed
         points: isSpecialTarget ? 25 : 10
       });
     };
 
     const spawnObstacle = () => {
-      const width = 30 + Math.random() * 50;
-      const height = 10 + Math.random() * 20;
+      // Performance optimization: Limit max obstacles on screen
+      if (gameState.current.obstacles.length > 5 + Math.floor(level / 2)) return;
       
-      // Higher levels have a chance to spawn moving obstacles
+      const width = 30 + Math.random() * 40; // Reduced max width
+      const height = 10 + Math.random() * 15; // Reduced max height
+      
+      // Higher levels have a chance to spawn moving obstacles, but start only from level 3
       const movingObstacle = level > 2 && Math.random() < 0.3;
       
       gameState.current.obstacles.push({
@@ -181,7 +187,7 @@ export const SimpleGame = () => {
         width,
         height,
         color: '#FF5252',
-        speed: (3 + Math.random() * 3) * gameState.current.difficultyMultiplier,
+        speed: (2 + Math.random() * 2) * gameState.current.difficultyMultiplier, // Reduced base speed
         moveHorizontal: movingObstacle,
         directionX: movingObstacle ? (Math.random() > 0.5 ? 1 : -1) : 0
       });
@@ -307,29 +313,39 @@ export const SimpleGame = () => {
         ctx.fillText(`${powerUpName}: ${gameState.current.powerUpTimeRemaining}s`, 10, 40);
       }
       
-      // Spawn logic
+      // Spawn logic with performance optimizations
       const currentTime = Date.now();
-      const spawnInterval = Math.max(1000 - (level * 75), 400); // Spawn faster as level increases, but with a minimum interval
+      
+      // Use a longer spawn interval to reduce entity count and improve performance
+      const spawnInterval = Math.max(1100 - (level * 60), 500); // More gradual increase, higher minimum
       const timeSinceLastSpawn = currentTime - gameState.current.lastSpawnTime;
       
       if (timeSinceLastSpawn > spawnInterval) {
-        // Higher chance to spawn obstacles at higher levels
-        const obstacleChance = Math.min(0.3 + (level * 0.05), 0.6);
+        // Only spawn if we're not at the entity limit
+        const totalEntities = gameState.current.targets.length + gameState.current.obstacles.length;
         
-        if (Math.random() < 0.7) {
-          spawnTarget();
-        }
-        
-        if (Math.random() < obstacleChance) {
-          spawnObstacle();
+        if (totalEntities < 20 + level) { // Limit total entities based on level
+          // Higher chance to spawn obstacles at higher levels, but more gradually
+          const obstacleChance = Math.min(0.25 + (level * 0.04), 0.5);
+          
+          // Spawn targets less frequently at higher levels
+          if (Math.random() < 0.7 - (level * 0.02)) {
+            spawnTarget();
+          }
+          
+          // More gradual obstacle introduction
+          if (level > 1 && Math.random() < obstacleChance) {
+            spawnObstacle();
+          }
         }
         
         gameState.current.lastSpawnTime = currentTime;
       }
       
-      // Power-up spawn logic
-      const powerUpInterval = 8000; // Power-ups can appear every 8 seconds
-      if (currentTime - gameState.current.lastPowerUpTime > powerUpInterval) {
+      // Power-up spawn logic - less frequent power-ups
+      const powerUpInterval = 10000; // Power-ups every 10 seconds instead of 8
+      if (currentTime - gameState.current.lastPowerUpTime > powerUpInterval && !powerUpActive) {
+        // Only spawn power-up when none is active
         spawnPowerUp();
         gameState.current.lastPowerUpTime = currentTime;
       }
@@ -337,10 +353,13 @@ export const SimpleGame = () => {
       // Apply slow motion effect if active
       const speedMultiplier = gameState.current.powerUpType === 'slowdown' ? 0.5 : 1;
       
-      // Update and draw targets
-      gameState.current.targets.forEach((target, index) => {
-        target.y += target.speed * speedMultiplier;
-        
+      // Performance optimization: Use array filtering instead of modifying during iteration
+    // Update and draw targets
+    gameState.current.targets = gameState.current.targets.filter(target => {
+      target.y += target.speed * speedMultiplier;
+      
+      // Only draw if in viewport (optimization)
+      if (target.y > -target.radius && target.y < canvas.height + target.radius) {
         ctx.beginPath();
         ctx.arc(target.x, target.y, target.radius, 0, Math.PI * 2);
         ctx.fillStyle = target.color;
@@ -354,40 +373,42 @@ export const SimpleGame = () => {
         }
         
         ctx.closePath();
-        
-        // Remove if offscreen
-        if (target.y > canvas.height + target.radius) {
-          gameState.current.targets.splice(index, 1);
-        }
-      });
+      }
       
-      // Update and draw obstacles
-      gameState.current.obstacles.forEach((obstacle, index) => {
-        obstacle.y += obstacle.speed * speedMultiplier;
+      // Keep if still on screen
+      return target.y <= canvas.height + target.radius;
+    });
+    
+    // Update and draw obstacles (with the same optimization)
+    gameState.current.obstacles = gameState.current.obstacles.filter(obstacle => {
+      obstacle.y += obstacle.speed * speedMultiplier;
+      
+      // Move horizontally if it's a moving obstacle
+      if (obstacle.moveHorizontal && obstacle.directionX) {
+        obstacle.x += obstacle.directionX * 2 * speedMultiplier;
         
-        // Move horizontally if it's a moving obstacle
-        if (obstacle.moveHorizontal && obstacle.directionX) {
-          obstacle.x += obstacle.directionX * 2 * speedMultiplier;
-          
-          // Bounce off walls
-          if (obstacle.x <= 0 || obstacle.x + obstacle.width >= gameState.current.width) {
-            obstacle.directionX! *= -1;
-          }
+        // Bounce off walls
+        if (obstacle.x <= 0 || obstacle.x + obstacle.width >= gameState.current.width) {
+          obstacle.directionX! *= -1;
         }
-        
+      }
+      
+      // Only draw if in viewport (optimization)
+      if (obstacle.y > -obstacle.height && obstacle.y < canvas.height) {
         ctx.fillStyle = obstacle.color;
         ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
-        
-        // Remove if offscreen
-        if (obstacle.y > canvas.height) {
-          gameState.current.obstacles.splice(index, 1);
-        }
-      });
+      }
       
-      // Update and draw power-ups
-      gameState.current.powerUps.forEach((powerUp, index) => {
-        powerUp.y += powerUp.speed * speedMultiplier;
-        
+      // Keep if still on screen
+      return obstacle.y <= canvas.height;
+    });
+    
+    // Update and draw power-ups (with the same optimization)
+    gameState.current.powerUps = gameState.current.powerUps.filter(powerUp => {
+      powerUp.y += powerUp.speed * speedMultiplier;
+      
+      // Only draw if in viewport (optimization)
+      if (powerUp.y > -powerUp.radius && powerUp.y < canvas.height + powerUp.radius) {
         ctx.beginPath();
         ctx.arc(powerUp.x, powerUp.y, powerUp.radius, 0, Math.PI * 2);
         ctx.fillStyle = powerUp.color;
@@ -397,16 +418,15 @@ export const SimpleGame = () => {
         ctx.fillStyle = 'white';
         ctx.font = '12px Arial';
         const icon = powerUp.type === 'shield' ? '🛡️' : 
-                     powerUp.type === 'slowdown' ? '⏱️' : '2x';
+                    powerUp.type === 'slowdown' ? '⏱️' : '2x';
         ctx.fillText(icon, powerUp.x - 6, powerUp.y + 4);
         
         ctx.closePath();
-        
-        // Remove if offscreen
-        if (powerUp.y > canvas.height + powerUp.radius) {
-          gameState.current.powerUps.splice(index, 1);
-        }
-      });
+      }
+      
+      // Keep if still on screen
+      return powerUp.y <= canvas.height + powerUp.radius;
+    });
       
       // Check for collisions
       if (checkCollision()) {
@@ -438,7 +458,8 @@ export const SimpleGame = () => {
     gameState.current.lastSpawnTime = Date.now();
     gameState.current.lastPowerUpTime = Date.now();
     gameState.current.powerUpType = null;
-    gameState.current.difficultyMultiplier = 1.0;
+    // Start with a medium difficulty (0.7) instead of full speed (1.0)
+    gameState.current.difficultyMultiplier = 0.7;
     
     setScore(0);
     setLevel(1);
