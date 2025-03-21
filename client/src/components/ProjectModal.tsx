@@ -61,7 +61,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
       <div className="bg-card rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 animate-fadeIn hover-target">
         <div className="p-6 hover-target">
           <div className="flex justify-between items-center mb-6 hover-target">
-            <h3 className="font-display font-bold text-2xl hover-target">{project.title}</h3>
+            <h3 className="font-display font-bold text-2xl hover-target heading-glow">{project.title}</h3>
             <button 
               onClick={onClose} 
               className="text-muted-foreground hover:text-foreground transition-colors hover-target"
@@ -78,7 +78,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             ></div>
             
             <div className="space-y-4 hover-target">
-              <h4 className="font-display font-semibold text-lg hover-target">Project Overview</h4>
+              <h4 className="font-display font-semibold text-lg hover-target heading-glow">Project Overview</h4>
               <p className="text-muted-foreground hover-target">{project.description}</p>
               
               <div className="hover-target">

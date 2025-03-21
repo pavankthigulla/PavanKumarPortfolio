@@ -165,14 +165,15 @@
   /* Heading glow effect */
   .heading-glow {
     @apply relative transition-all duration-300 hover-target;
+    transition: text-shadow 0.3s ease-in-out;
   }
   
   .heading-glow:hover {
-    @apply text-shadow-glow;
+    @apply text-shadow-glow text-primary;
   }
   
   .text-shadow-glow {
-    text-shadow: 0 0 10px rgba(14, 231, 183, 0.4), 0 0 20px rgba(14, 231, 183, 0.2);
+    text-shadow: 0 0 10px rgba(14, 231, 183, 0.6), 0 0 20px rgba(14, 231, 183, 0.4), 0 0 30px rgba(14, 231, 183, 0.2);
   }
   
   /* Animated elements - much faster animations */

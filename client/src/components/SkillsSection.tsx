@@ -162,7 +162,7 @@ export const SkillsSection = () => {
                     <Check className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">{cert.name}</h4>
+                    <h4 className="font-semibold heading-glow">{cert.name}</h4>
                     <p className="text-sm text-muted-foreground">{cert.issuer}</p>
                   </div>
                 </div>
