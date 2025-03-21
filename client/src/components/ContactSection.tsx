@@ -59,7 +59,7 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="section py-24" data-section="contact">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center" data-animate>
+        <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center heading-glow" data-animate>
           <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Get In Touch</span>
         </h2>
         
@@ -75,7 +75,7 @@ export const ContactSection = () => {
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Email</h3>
+                  <h3 className="font-semibold heading-glow">Email</h3>
                   <a href="mailto:pavank02331@gmail.com" className="text-muted-foreground hover:text-primary transition-colors hover-target">pavank02331@gmail.com</a>
                 </div>
               </div>
@@ -85,7 +85,7 @@ export const ContactSection = () => {
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Location</h3>
+                  <h3 className="font-semibold heading-glow">Location</h3>
                   <p className="text-muted-foreground">St. Louis (Remote)</p>
                 </div>
               </div>

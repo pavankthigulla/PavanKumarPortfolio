@@ -25,7 +25,7 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
         <div data-animate>
           <p className="text-primary font-code mb-4 tracking-widest hero-title">Hello, my name is</p>
-          <h1 className="text-4xl md:text-7xl font-display font-bold mb-4 hero-title">Pavan Kumar</h1>
+          <h1 className="text-4xl md:text-7xl font-display font-bold mb-4 hero-title heading-glow">Pavan Kumar</h1>
           <h2 className="text-xl md:text-3xl text-muted-foreground font-display mb-6 hero-subtitle">Software Engineer</h2>
           <p className="max-w-2xl mx-auto text-muted-foreground mb-8 hero-description leading-relaxed">
             I turn complex problems into simple solutions, creating things that not only work but feel intuitive. 

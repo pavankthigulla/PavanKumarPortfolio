@@ -112,7 +112,7 @@ export const SkillsSection = () => {
           </div>
           
           <div className="space-y-6" data-animate>
-            <h3 className="text-xl font-display font-semibold relative">
+            <h3 className="text-xl font-display font-semibold relative heading-glow">
               <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Other Skills</span>
             </h3>
             
@@ -138,7 +138,7 @@ export const SkillsSection = () => {
         
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8" data-animate>
           <div className="bg-card rounded-lg p-6 space-y-4">
-            <h3 className="text-xl font-display font-semibold">Tools & Technologies</h3>
+            <h3 className="text-xl font-display font-semibold heading-glow">Tools & Technologies</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {tools.map((tool, index) => (
                 <div key={index} className="text-center p-3 bg-background/50 rounded-lg hover:bg-background/80 transition-colors hover-target">
@@ -154,7 +154,7 @@ export const SkillsSection = () => {
           </div>
           
           <div className="bg-card rounded-lg p-6 space-y-4">
-            <h3 className="text-xl font-display font-semibold">Certifications</h3>
+            <h3 className="text-xl font-display font-semibold heading-glow">Certifications</h3>
             <div className="space-y-4">
               {certifications.map((cert, index) => (
                 <div key={index} className="flex gap-4 items-center p-3 bg-background/50 rounded-lg hover-target">
