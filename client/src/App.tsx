@@ -4,8 +4,8 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
-import { ThemeToggle } from "./components/ThemeToggle";
 import { CustomCursor } from "./components/CustomCursor";
+import { useEffect } from "react";
 
 function Router() {
   return (
@@ -17,11 +17,16 @@ function Router() {
 }
 
 function App() {
+  // Force dark mode
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <CustomCursor />
       <Router />
-      <ThemeToggle />
       <Toaster />
     </QueryClientProvider>
   );
