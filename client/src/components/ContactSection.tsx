@@ -98,7 +98,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold heading-glow">Location</h3>
-                  <p className="text-muted-foreground">California</p>
+                  <p className="text-muted-foreground">USA</p>
                 </div>
               </div>
             </div>

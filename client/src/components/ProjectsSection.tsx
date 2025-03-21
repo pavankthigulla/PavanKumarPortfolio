@@ -19,7 +19,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: "CultureConnect – Cultural Exchange Web App",
-    description: "A platform where users from different countries connect to learn about each other's culture through chats, challenges, and virtual events.",
+    description: "A platform where users from different places connect to learn about each other's culture through chats, challenges, and virtual events.",
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
     tech: ["React.js (frontend UI)", "Node.js (server)", "Express.js (API routing)", "MongoDB (user and event data)", "Socket.io (real-time chat)"],
     github: "https://github.com/pavankumar/culture-connect",
