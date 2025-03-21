@@ -26,10 +26,11 @@ export const HeroSection = () => {
         <div data-animate>
           <p className="text-primary font-code mb-4 tracking-widest hero-title">Hello, my name is</p>
           <h1 className="text-4xl md:text-7xl font-display font-bold mb-4 hero-title">Pavan Kumar</h1>
-          <h2 className="text-xl md:text-3xl text-muted-foreground font-display mb-8 hero-subtitle">Software Engineer</h2>
-          <p className="max-w-lg mx-auto text-muted-foreground mb-12 hero-description">
-            I turn complex problems into simple solutions, creating things that not only work but feel intuitive. 
-            Constantly pushing the boundaries of what's possible, I bring ideas to life with thoughtful design and precise execution.
+          <h2 className="text-xl md:text-3xl text-muted-foreground font-display mb-6 hero-subtitle">Software Engineer</h2>
+          <p className="max-w-2xl mx-auto text-muted-foreground mb-8 hero-description leading-relaxed">
+            Experienced Software Engineer with expertise in full-stack development, specializing in React, Spring Boot and Node.js. 
+            Proficient in enhancing project efficiency, optimizing API integrations, and delivering scalable, user-focused solutions. 
+            Adept in testing, deployment, and Agile practices, with a proven track record of improving system performance and reliability.
           </p>
           
           <div className="flex justify-center gap-4 hero-cta">
