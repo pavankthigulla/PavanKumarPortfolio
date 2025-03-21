@@ -82,7 +82,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               <p className="text-muted-foreground hover-target">{project.description}</p>
               
               <div className="hover-target">
-                <h4 className="font-display font-semibold text-lg mb-2 hover-target">Technologies Used</h4>
+                <h4 className="font-display font-semibold text-lg mb-2 hover-target heading-glow">Technologies Used</h4>
                 <div className="flex flex-wrap gap-2 hover-target">
                   {project.tech.map((tech, index) => (
                     <span key={index} className="tech-badge hover-target">{tech}</span>
@@ -91,7 +91,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               </div>
               
               <div className="hover-target">
-                <h4 className="font-display font-semibold text-lg mb-2 hover-target">Key Features</h4>
+                <h4 className="font-display font-semibold text-lg mb-2 hover-target heading-glow">Key Features</h4>
                 <ul className="list-disc list-inside text-muted-foreground space-y-1 hover-target">
                   {project.features.map((feature, index) => (
                     <li key={index} className="hover-target">{feature}</li>
@@ -102,7 +102,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               <div className="flex justify-end pt-2">
                 <button 
                   onClick={onClose}
-                  className="bg-primary hover:bg-primary/90 text-black px-5 py-2 rounded-md font-medium transition-all duration-300 flex items-center gap-2 hover-target"
+                  className="bg-primary hover:bg-primary/90 text-black px-5 py-2 rounded-md font-medium transition-all duration-300 flex items-center gap-2 hover-target animate-glow"
                 >
                   Close
                   <X className="w-4 h-4" />
