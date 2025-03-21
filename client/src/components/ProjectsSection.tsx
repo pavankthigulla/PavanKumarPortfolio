@@ -63,22 +63,6 @@ const projects: Project[] = [
       "Treatment optimization engine with personalized recommendations",
       "Secure data handling compliant with HIPAA and GDPR regulations"
     ]
-  },
-  {
-    id: 4,
-    title: "Autonomous Inventory Management System",
-    description: "A cutting-edge inventory management system using computer vision and IoT to automate stock tracking, predict shortages, and optimize supply chains.",
-    image: "https://images.unsplash.com/photo-1565430182015-5f53d77a5e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
-    tech: ["Computer Vision", "IoT", "React", "Node.js", "TensorFlow", "AWS"],
-    github: "#",
-    demo: "#",
-    features: [
-      "Real-time inventory tracking through distributed IoT sensors",
-      "Computer vision for automatic product recognition and counting",
-      "Predictive analytics for demand forecasting and stock optimization",
-      "Supply chain integration with automatic reordering capabilities",
-      "Anomaly detection for shrinkage prevention and quality control"
-    ]
   }
 ];
 

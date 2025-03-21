@@ -61,11 +61,7 @@ const tools: Skill[] = [
 ];
 
 const certifications = [
-  { name: "Object Oriented Programming in Java", issuer: "Online Education Platform" },
-  { name: "Python Data Structures", issuer: "Online Education Platform" },
-  { name: "Responsive Web Design", issuer: "HTML + CSS + JS" },
-  { name: "SQL using MySQL", issuer: "Database Management Course" },
-  { name: "If there were a certification for dodging certifications, I'd probably not have that one either. 😂", issuer: "Self-Certified" }
+  { name: "If there were a certification for dodging certifications, I'd probably not have that one either. 🤣", issuer: "" }
 ];
 
 export const SkillsSection = () => {
@@ -203,15 +199,14 @@ export const SkillsSection = () => {
             <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Certifications</span>
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="max-w-xl mx-auto">
             {certifications.map((cert, index) => (
-              <div key={index} className="flex gap-4 items-center p-4 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
-                <div className="bg-primary/20 p-2 rounded-full">
-                  <Check className="w-6 h-6 text-primary" />
+              <div key={index} className="flex gap-4 items-center p-5 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
+                <div className="animate-bounce bg-primary/20 p-2 rounded-full">
+                  <span className="text-2xl">🤣👐</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold heading-glow">{cert.name}</h4>
-                  <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                  <h4 className="font-semibold heading-glow leading-relaxed">{cert.name}</h4>
                 </div>
               </div>
             ))}
