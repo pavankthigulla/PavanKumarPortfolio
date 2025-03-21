@@ -194,6 +194,94 @@
     animation: fadeIn 0.5s ease-in-out forwards;
   }
   
+  /* Scroll graphics */
+  .scroll-graphics-container::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, theme('colors.primary.DEFAULT'), transparent);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .scrolled .scroll-graphics-container::before {
+    opacity: 1;
+  }
+  
+  /* Add scroll indicator dots on the right side */
+  .section-dots {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .section-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  
+  .section-dot.active {
+    background-color: theme('colors.primary.DEFAULT');
+    box-shadow: 0 0 8px theme('colors.primary.DEFAULT');
+    transform: scale(1.3);
+  }
+  
+  /* Advanced section transitions */
+  section {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, theme('colors.background.DEFAULT'), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  section:nth-of-type(odd) .section-glow {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, theme('colors.primary.DEFAULT') 0%, transparent 70%);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  section:nth-of-type(even) .section-glow {
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, theme('colors.secondary.DEFAULT') 0%, transparent 70%);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  /* Animations */
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }

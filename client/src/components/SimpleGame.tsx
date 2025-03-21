@@ -108,11 +108,12 @@ export const SimpleGame = () => {
     };
   }, [gameStarted, gameOver]);
 
-  // Update level based on score
+  // Update level based on score - with optimized progression
   useEffect(() => {
     if (score >= level * 100) {
       setLevel(prevLevel => prevLevel + 1);
-      gameState.current.difficultyMultiplier += 0.15;
+      // More moderate difficulty increase
+      gameState.current.difficultyMultiplier += 0.1;
     }
   }, [score, level]);
 

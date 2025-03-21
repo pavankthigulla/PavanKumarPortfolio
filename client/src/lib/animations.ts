@@ -27,14 +27,97 @@ export const initAnimations = () => {
     });
   };
   
+  // Initialize scroll progress indicator and section dots
+  const initScrollGraphics = () => {
+    // Create container for scroll graphics
+    const scrollGraphicsContainer = document.createElement('div');
+    scrollGraphicsContainer.className = 'scroll-graphics-container';
+    document.body.appendChild(scrollGraphicsContainer);
+
+    // Create section dots container
+    const sectionDotsContainer = document.createElement('div');
+    sectionDotsContainer.className = 'section-dots';
+    document.body.appendChild(sectionDotsContainer);
+
+    // Get all sections
+    const sections = document.querySelectorAll('section');
+
+    // Create a dot for each section
+    sections.forEach((section, index) => {
+      // Add section glow
+      const sectionGlow = document.createElement('div');
+      sectionGlow.className = 'section-glow';
+      section.appendChild(sectionGlow);
+
+      // Create dot
+      const dot = document.createElement('div');
+      dot.className = 'section-dot';
+      dot.setAttribute('data-index', index.toString());
+      sectionDotsContainer.appendChild(dot);
+      
+      // Add click event to dot
+      dot.addEventListener('click', () => {
+        section.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Highlight active dot and show scroll indicator on scroll
+    const handleScroll = () => {
+      // Add scrolled class to body when scrolled
+      if (window.scrollY > 50) {
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+
+      // Find active section
+      let activeIndex = 0;
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+          activeIndex = index;
+        }
+      });
+
+      // Highlight active dot
+      document.querySelectorAll('.section-dot').forEach((dot, index) => {
+        if (index === activeIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    };
+
+    // Initial setup
+    handleScroll();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (document.body.contains(scrollGraphicsContainer)) {
+        document.body.removeChild(scrollGraphicsContainer);
+      }
+      if (document.body.contains(sectionDotsContainer)) {
+        document.body.removeChild(sectionDotsContainer);
+      }
+    };
+  };
+  
   // Initialize scroll animations
   animateOnScroll();
   
   // Listen for scroll events
   window.addEventListener("scroll", animateOnScroll);
   
+  // Initialize scroll graphics
+  const cleanupScrollGraphics = initScrollGraphics();
+  
   return () => {
     window.removeEventListener("scroll", animateOnScroll);
+    cleanupScrollGraphics();
   };
 };
 

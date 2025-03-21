@@ -44,21 +44,19 @@ export const CustomCursor = () => {
 
   return (
     <>
-      {/* Main cursor - only show when hovering */}
-      {isHovering && (
-        <div 
-          className={`fixed pointer-events-none z-50 rounded-full mix-blend-difference transition-all duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
-          style={{ 
-            transform: `translate(${position.x}px, ${position.y}px)`,
-            left: -16,
-            top: -16,
-            width: '32px',
-            height: '32px',
-            backgroundColor: "white",
-            transition: "width 0.3s, height 0.3s, background-color 0.3s",
-          }}
-        />
-      )}
+      {/* Main cursor - always visible with circle */}
+      <div 
+        className={`fixed pointer-events-none z-50 rounded-full mix-blend-difference transition-all duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
+        style={{ 
+          transform: `translate(${position.x}px, ${position.y}px)`,
+          left: -16,
+          top: -16,
+          width: isHovering ? '50px' : '32px',
+          height: isHovering ? '50px' : '32px',
+          backgroundColor: "white",
+          transition: "width 0.3s, height 0.3s, background-color 0.3s",
+        }}
+      />
       
       {/* Small ball cursor - always visible */}
       <div 
