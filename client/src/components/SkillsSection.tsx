@@ -195,15 +195,15 @@ export const SkillsSection = () => {
         
         {/* Certifications */}
         <div className="mt-16" data-animate>
-          <h3 className="text-xl font-display font-semibold relative heading-glow mb-6 text-center">
+          <h3 className="text-2xl md:text-3xl font-display font-semibold relative heading-glow mb-6 text-center">
             <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Certifications</span>
           </h3>
           
           <div className="max-w-xl mx-auto">
             {certifications.map((cert, index) => (
               <div key={index} className="flex gap-4 items-center p-5 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
-                <div className="animate-bounce bg-primary/20 p-2 rounded-full">
-                  <span className="text-2xl">🤣👐</span>
+                <div className="animate-laugh bg-primary/20 p-3 rounded-full">
+                  <span className="text-5xl">🤣</span>
                 </div>
                 <div>
                   <h4 className="font-semibold heading-glow leading-relaxed">{cert.name}</h4>

@@ -167,6 +167,7 @@
   .heading-glow {
     @apply relative transition-all duration-300 hover-target;
     transition: text-shadow 0.3s ease-in-out;
+    text-shadow: 0 0 3px rgba(14, 231, 183, 0.3), 0 0 7px rgba(14, 231, 183, 0.1);
   }
   
   .heading-glow:hover {
@@ -174,7 +175,7 @@
   }
   
   .text-shadow-glow {
-    text-shadow: 0 0 5px rgba(14, 231, 183, 0.4), 0 0 10px rgba(14, 231, 183, 0.2);
+    text-shadow: 0 0 8px rgba(14, 231, 183, 0.5), 0 0 15px rgba(14, 231, 183, 0.3);
   }
   
   /* Animated elements - much faster animations */
@@ -190,7 +191,11 @@
 @layer utilities {
   /* Custom animations */
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-laugh {
+    animation: laugh 2s ease-in-out infinite;
   }
   
   .animate-glow {
@@ -320,5 +325,12 @@
   @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+  }
+  
+  @keyframes laugh {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    50% { transform: scale(1.2) rotate(0deg); }
+    75% { transform: scale(1.1) rotate(5deg); }
   }
 }
