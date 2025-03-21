@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { SiGmail } from "react-icons/si";
 import { HiLocationMarker } from "react-icons/hi";
+import { AnimatedText } from "./AnimatedText";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -66,9 +67,14 @@ export const ContactSection = () => {
         
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6" data-animate>
-            <p className="text-lg text-muted-foreground mb-6">
-              I'm currently available for new opportunities. Whether you have a project idea, job opportunity, or just want to connect, feel free to reach out!
-            </p>
+            <div className="min-h-[4rem] mb-6 bg-card/30 rounded-lg p-4 backdrop-blur-sm shadow-md border border-primary/20">
+              <AnimatedText 
+                text="I'm currently available for new opportunities. Whether you have a project idea, job opportunity, or just want to connect, feel free to reach out!" 
+                className="text-lg text-primary-foreground font-medium"
+                speed={40}
+                delay={500}
+              />
+            </div>
             
             <div className="space-y-4">
               <div className="flex items-center gap-4">
