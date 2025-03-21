@@ -6,9 +6,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin } from "react-icons/fa";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -72,7 +72,7 @@ export const ContactSection = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="bg-primary/20 p-3 rounded-full">
-                  <Mail className="w-6 h-6 text-primary" />
+                  <FaEnvelope className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold heading-glow">Email</h3>
@@ -82,11 +82,11 @@ export const ContactSection = () => {
               
               <div className="flex items-center gap-4">
                 <div className="bg-primary/20 p-3 rounded-full">
-                  <MapPin className="w-6 h-6 text-primary" />
+                  <FaMapMarkerAlt className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold heading-glow">Location</h3>
-                  <p className="text-muted-foreground">St. Louis (Remote)</p>
+                  <p className="text-muted-foreground">California</p>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ export const ContactSection = () => {
                 className="bg-background hover:bg-primary/20 p-3 rounded-full transition-all duration-300 hover-target hover:shadow-[0_0_10px_rgba(14,231,183,0.5)] transform hover:-translate-y-1"
                 aria-label="LinkedIn Profile"
               >
-                <Linkedin className="w-5 h-5 text-primary" />
+                <FaLinkedin className="w-5 h-5 text-primary" />
               </a>
             </div>
           </div>
