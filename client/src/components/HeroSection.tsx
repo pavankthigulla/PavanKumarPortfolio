@@ -42,7 +42,8 @@ export const HeroSection = () => {
             </a>
             <a 
               href="#contact" 
-              className="bg-primary hover:bg-primary/90 text-black font-medium px-6 py-3 rounded-md transition-all duration-300 hover-target"
+              className="bg-transparent hover:bg-primary/10 text-primary border-2 border-primary px-6 py-3 rounded-md font-medium 
+              transition-all duration-300 hover:shadow-[0_0_15px_rgba(14,231,183,0.4)] hover-target"
             >
               Contact Me
             </a>
