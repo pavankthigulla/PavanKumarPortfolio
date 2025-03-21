@@ -48,7 +48,7 @@ export const CustomCursor = () => {
     <>
       {/* Main cursor - always visible with circle */}
       <div 
-        className={`fixed pointer-events-none z-50 rounded-full mix-blend-difference transition-all duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
+        className={`fixed pointer-events-none z-[9999] rounded-full mix-blend-difference transition-all duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
         style={{ 
           transform: `translate(${position.x}px, ${position.y}px)`,
           left: -16,
@@ -62,7 +62,7 @@ export const CustomCursor = () => {
       
       {/* Small ball cursor - always visible */}
       <div 
-        className={`fixed pointer-events-none z-50 rounded-full bg-primary transition-all duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
+        className={`fixed pointer-events-none z-[9999] rounded-full bg-primary transition-all duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
         style={{ 
           transform: `translate(${position.x}px, ${position.y}px)`,
           left: -4,
@@ -75,10 +75,10 @@ export const CustomCursor = () => {
       <style dangerouslySetInnerHTML={{
         __html: `
           body {
-            cursor: none;
+            cursor: none !important;
           }
           a, button, [role="button"], .clickable, .view-project {
-            cursor: none;
+            cursor: none !important;
           }
           .project-modal {
             z-index: 49;
@@ -90,9 +90,16 @@ export const CustomCursor = () => {
             position: relative;
             z-index: 40;
           }
+          
+          /* Ensure real cursor is hidden but custom cursor shows */
+          * {
+            cursor: none !important;
+          }
+          
+          /* Override for mobile devices */
           @media (pointer: coarse) {
-            body, a, button, [role="button"], .clickable, .view-project {
-              cursor: auto;
+            body, a, button, [role="button"], .clickable, .view-project, * {
+              cursor: auto !important;
             }
           }
         `

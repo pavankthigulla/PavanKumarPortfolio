@@ -84,7 +84,7 @@ const projects: Project[] = [
     id: 5,
     title: "SmartMed Assist – iOS Medicine Tracking",
     description: "A health-focused iOS app that helps users keep track of their medicine schedules, get timely reminders, and access basic medicine information.",
-    image: "https://images.unsplash.com/photo-1573855619003-97b4799dcd8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
     tech: ["Swift (language)", "SwiftUI (for building UI)", "Firebase Firestore (data storage)", "Firebase Auth (authentication)", "Cloud Messaging (notifications)"],
     github: "https://github.com/pavankumar/smartmed-assist",
     demo: "https://apps.apple.com/demo/smartmed-assist",
@@ -154,8 +154,9 @@ export const ProjectsSection = () => {
                 
                 <div className="flex items-center justify-end mt-4">                  
                   <button 
-                    className="view-project text-primary text-sm font-medium flex items-center gap-1 transition-all hover:gap-2 cursor-pointer"
+                    className="view-project text-primary text-sm font-medium flex items-center gap-1 transition-all hover:gap-2 cursor-pointer !z-50"
                     onClick={() => setSelectedProject(project)}
+                    style={{ zIndex: 50 }}
                   >
                     View Details
                     <ArrowRight className="w-4 h-4" />
