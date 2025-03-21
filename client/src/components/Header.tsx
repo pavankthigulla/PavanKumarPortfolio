@@ -28,7 +28,14 @@ export const Header = () => {
       scrolled ? "bg-background/80 backdrop-blur-lg shadow-md" : "bg-transparent"
     }`}>
       
-      <div className="ml-5">
+      <div className="flex items-center gap-4 ml-5">
+        <a 
+          href="#home" 
+          className="font-display text-primary text-xl font-semibold heading-glow"
+        >
+          Pavan's Portfolio
+        </a>
+        
         <a 
           href="https://www.linkedin.com/in/pavan-kumar-698b65277/" 
           target="_blank" 
@@ -75,7 +82,8 @@ export const Header = () => {
       <div className={`fixed inset-y-0 right-0 w-64 bg-muted/90 backdrop-blur-md p-8 shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}>
-        <div className="flex justify-end mb-8">
+        <div className="flex justify-between items-center mb-8">
+          <span className="font-display text-primary text-lg font-semibold heading-glow">Pavan's Portfolio</span>
           <button 
             onClick={() => setIsMenuOpen(false)}
             className="hover-target"
