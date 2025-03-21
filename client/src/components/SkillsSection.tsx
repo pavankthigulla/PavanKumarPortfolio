@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { animateSkillBars } from "@/lib/animations";
-import { Check, Code, Database, Cloud, Server, FileCode, GitBranch } from "lucide-react";
+import { Check, Code, Database, Cloud, Server, FileCode, GitBranch, Terminal, Laptop } from "lucide-react";
 import { 
   FaJsSquare, FaReact, FaHtml5, FaCss3Alt, FaAngular, FaBootstrap, 
-  FaJava, FaNodeJs, FaPython, FaDocker, FaAws, FaMicrosoft, FaGithub, FaGitlab
+  FaJava, FaNodeJs, FaPython, FaDocker, FaGithub, FaGitlab, FaWindows
 } from "react-icons/fa";
 
 interface Skill {
@@ -38,8 +38,8 @@ const databaseSkills: Skill[] = [
 ];
 
 const cloudSkills: Skill[] = [
-  { name: "AWS", icon: <FaAws size={24} className="text-yellow-500" /> },
-  { name: "Azure", icon: <FaMicrosoft size={24} className="text-blue-500" /> },
+  { name: "AWS", icon: <Cloud size={24} className="text-yellow-500" /> },
+  { name: "Azure", icon: <FaWindows size={24} className="text-blue-500" /> },
   { name: "Cloud Computing", icon: <Cloud size={24} className="text-sky-400" /> }
 ];
 
@@ -52,8 +52,8 @@ const otherSkills: Skill[] = [
 ];
 
 const tools: Skill[] = [
-  { name: "VS Code", icon: <Code size={24} className="text-blue-500" /> },
-  { name: "Eclipse", icon: <Code size={24} className="text-purple-500" /> },
+  { name: "VS Code", icon: <Laptop size={24} className="text-blue-500" /> },
+  { name: "Eclipse", icon: <Terminal size={24} className="text-purple-500" /> },
   { name: "Git", icon: <GitBranch size={24} className="text-orange-600" /> },
   { name: "GitHub", icon: <FaGithub size={24} className="text-white" /> },
   { name: "GitLab", icon: <FaGitlab size={24} className="text-orange-500" /> },
