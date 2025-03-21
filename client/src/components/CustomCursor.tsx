@@ -16,7 +16,9 @@ export const CustomCursor = () => {
       const isButton = target.tagName.toLowerCase() === "button" || 
                        target.tagName.toLowerCase() === "a" ||
                        !!target.closest("button") || 
-                       !!target.closest("a");
+                       !!target.closest("a") ||
+                       target.classList.contains("view-project") ||
+                       !!target.closest(".view-project");
       
       setIsHovering(isButton);
     };
@@ -75,11 +77,21 @@ export const CustomCursor = () => {
           body {
             cursor: none;
           }
-          a, button, [role="button"], .clickable {
+          a, button, [role="button"], .clickable, .view-project {
             cursor: none;
           }
+          .project-modal {
+            z-index: 49;
+          }
+          .project-modal button {
+            cursor: pointer !important;
+          }
+          .view-project {
+            position: relative;
+            z-index: 40;
+          }
           @media (pointer: coarse) {
-            body, a, button, [role="button"], .clickable {
+            body, a, button, [role="button"], .clickable, .view-project {
               cursor: auto;
             }
           }

@@ -46,7 +46,7 @@ export const ContactSection = () => {
       fireConfetti();
       
       toast({
-        title: "Message sent! 🎉",
+        title: "Message sent!",
         description: "Thanks for reaching out. I'll get back to you soon.",
         variant: "default",
       });

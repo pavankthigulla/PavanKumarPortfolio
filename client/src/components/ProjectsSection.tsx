@@ -20,7 +20,7 @@ const projects: Project[] = [
     id: 1,
     title: "CultureConnect – Cultural Exchange Web App",
     description: "A platform where users from different countries connect to learn about each other's culture through chats, challenges, and virtual events.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
     tech: ["React.js (frontend UI)", "Node.js (server)", "Express.js (API routing)", "MongoDB (user and event data)", "Socket.io (real-time chat)"],
     github: "https://github.com/pavankumar/culture-connect",
     demo: "https://culture-connect.vercel.app",
@@ -36,7 +36,7 @@ const projects: Project[] = [
     id: 2,
     title: "TaskPilot – Smart Team Task Management",
     description: "A team task management web app that supports different user roles (Admin, Manager, Member), project boards, real-time updates, and deadline tracking for small teams.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
     tech: ["React.js (frontend UI)", "Redux Toolkit (state management)", "Node.js (backend server)", "Express.js (REST API)", "PostgreSQL (relational database)"],
     github: "https://github.com/pavankumar/taskpilot",
     demo: "https://taskpilot-demo.vercel.app",
@@ -52,7 +52,7 @@ const projects: Project[] = [
     id: 3,
     title: "ShopVerse – 3D Product Viewer E-commerce",
     description: "A React-based e-commerce site where users can view and interact with 3D models of products before adding them to their cart for an immersive shopping experience.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    image: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
     tech: ["React.js (frontend framework)", "Three.js (render 3D models)", "Node.js (backend server)", "Express.js (API handling)", "MongoDB (product & user data)"],
     github: "https://github.com/pavankumar/shopverse",
     demo: "https://shopverse-demo.vercel.app",
@@ -68,7 +68,7 @@ const projects: Project[] = [
     id: 4,
     title: "InsightExtractor – Q&A Generator from Text",
     description: "A Python tool that automatically generates question-answer pairs from long texts or PDFs, making it perfect for study materials or quick content review.",
-    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    image: "https://images.unsplash.com/photo-1546900703-cf06143d1239?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
     tech: ["Python (core language)", "spaCy (named entity detection)", "Transformers - T5 (Q&A generation)", "PyPDF2 (PDF processing)", "Streamlit (web interface)"],
     github: "https://github.com/pavankumar/insight-extractor",
     demo: "https://insight-extractor.herokuapp.com",
@@ -84,7 +84,7 @@ const projects: Project[] = [
     id: 5,
     title: "SmartMed Assist – iOS Medicine Tracking",
     description: "A health-focused iOS app that helps users keep track of their medicine schedules, get timely reminders, and access basic medicine information.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    image: "https://images.unsplash.com/photo-1573855619003-97b4799dcd8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
     tech: ["Swift (language)", "SwiftUI (for building UI)", "Firebase Firestore (data storage)", "Firebase Auth (authentication)", "Cloud Messaging (notifications)"],
     github: "https://github.com/pavankumar/smartmed-assist",
     demo: "https://apps.apple.com/demo/smartmed-assist",
@@ -154,7 +154,7 @@ export const ProjectsSection = () => {
                 
                 <div className="flex items-center justify-end mt-4">                  
                   <button 
-                    className="view-project text-primary text-sm font-medium flex items-center gap-1 transition-all hover:gap-2 hover-target"
+                    className="view-project text-primary text-sm font-medium flex items-center gap-1 transition-all hover:gap-2 cursor-pointer"
                     onClick={() => setSelectedProject(project)}
                   >
                     View Details

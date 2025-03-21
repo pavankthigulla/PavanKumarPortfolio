@@ -58,7 +58,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
       id="project-modal-overlay"
       className="fixed inset-0 bg-black/80 flex items-center justify-center z-[100] backdrop-blur-sm"
     >
-      <div className="bg-card rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 animate-fadeIn">
+      <div className="project-modal bg-card rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 animate-fadeIn">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
             <h3 className="font-display font-bold text-2xl heading-glow">{project.title}</h3>
