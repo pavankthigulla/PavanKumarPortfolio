@@ -34,7 +34,7 @@ export const BackgroundCanvas = () => {
     
     // Create main particle field
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 1500;
+    const particlesCount = 800; // Reduced particle count
     
     const posArray = new Float32Array(particlesCount * 3);
     const scaleArray = new Float32Array(particlesCount);
@@ -72,7 +72,7 @@ export const BackgroundCanvas = () => {
     
     // Create secondary smaller particles
     const smallParticlesGeometry = new THREE.BufferGeometry();
-    const smallParticlesCount = 2000;
+    const smallParticlesCount = 800; // Reduced particle count
     
     const smallPosArray = new Float32Array(smallParticlesCount * 3);
     
@@ -113,41 +113,47 @@ export const BackgroundCanvas = () => {
     
     // Animation loop
     const animate = () => {
-      timeRef.current += 0.005;
+      timeRef.current += 0.003; // Slower time increment
       
       if (!rendererRef.current || !sceneRef.current || !cameraRef.current) return;
       
       // Smooth camera movement
-      targetX = mouseX * 0.001;
-      targetY = mouseY * 0.001;
+      targetX = mouseX * 0.0005; // Reduced sensitivity
+      targetY = mouseY * 0.0005; // Reduced sensitivity
       
       if (particlesRef.current) {
-        particlesRef.current.rotation.y += 0.0015;
+        particlesRef.current.rotation.y += 0.001; // Slower rotation
         
-        // Create pulsing effect
-        const positions = particlesRef.current.geometry.attributes.position.array as Float32Array;
-        const scales = particlesRef.current.geometry.attributes.scale.array as Float32Array;
-        
-        for (let i = 0; i < positions.length; i += 3) {
-          const ix = i / 3;
-          const sinWave = Math.sin(timeRef.current + ix * 0.1) * 0.1;
-          positions[i+1] += sinWave * 0.01; // Subtle vertical movement
-          scales[ix] = Math.max(0.5, Math.sin(timeRef.current + ix) * 0.5 + 0.5);
+        // Only update every 3 frames to reduce CPU usage (roughly 20fps for this effect)
+        if (Math.floor(timeRef.current * 100) % 3 === 0) {
+          // Create pulsing effect
+          const positions = particlesRef.current.geometry.attributes.position.array as Float32Array;
+          const scales = particlesRef.current.geometry.attributes.scale.array as Float32Array;
+          
+          // Skip every other particle to reduce calculations
+          for (let i = 0; i < positions.length; i += 6) {
+            const ix = i / 3;
+            const sinWave = Math.sin(timeRef.current + ix * 0.05) * 0.05; // Reduced values
+            positions[i+1] += sinWave * 0.01; // Subtle vertical movement
+            if (ix < scales.length) {
+              scales[ix] = Math.max(0.5, Math.sin(timeRef.current + ix * 0.5) * 0.3 + 0.7);
+            }
+          }
+          
+          particlesRef.current.geometry.attributes.position.needsUpdate = true;
+          particlesRef.current.geometry.attributes.scale.needsUpdate = true;
         }
-        
-        particlesRef.current.geometry.attributes.position.needsUpdate = true;
-        particlesRef.current.geometry.attributes.scale.needsUpdate = true;
       }
       
       if (particlesMeshRef.current) {
-        particlesMeshRef.current.rotation.x += 0.001;
-        particlesMeshRef.current.rotation.y += 0.002;
+        particlesMeshRef.current.rotation.x += 0.0005; // Slower rotation
+        particlesMeshRef.current.rotation.y += 0.001; // Slower rotation
       }
       
       // Camera follows mouse with damping
       if (cameraRef.current) {
-        cameraRef.current.position.x += (targetX - cameraRef.current.position.x) * 0.05;
-        cameraRef.current.position.y += (-targetY - cameraRef.current.position.y) * 0.05;
+        cameraRef.current.position.x += (targetX - cameraRef.current.position.x) * 0.02; // Slower movement
+        cameraRef.current.position.y += (-targetY - cameraRef.current.position.y) * 0.02; // Slower movement
         cameraRef.current.lookAt(scene.position);
       }
       

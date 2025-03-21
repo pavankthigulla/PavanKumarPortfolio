@@ -486,15 +486,7 @@ export const SimpleGame = () => {
         
         {!gameStarted && !gameOver && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/80 rounded-md">
-            <h4 className="text-lg font-bold mb-2">How to Play</h4>
-            <ul className="text-center text-sm mb-4 space-y-1">
-              <li>🟢 <span className="font-medium">Green circles:</span> 10 points</li>
-              <li>🟡 <span className="font-medium">Yellow circles:</span> 25 points</li>
-              <li>🛡️ <span className="font-medium">Blue:</span> Shield (10s)</li>
-              <li>⏱️ <span className="font-medium">Purple:</span> Slow motion (10s)</li>
-              <li>2x <span className="font-medium">Yellow:</span> Double points (10s)</li>
-              <li>🔴 <span className="font-medium">Red blocks:</span> Avoid!</li>
-            </ul>
+            <h4 className="text-lg font-bold mb-4">Avoid Red</h4>
             <button 
               onClick={handleStartGame}
               className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 hover-target transition-colors"
