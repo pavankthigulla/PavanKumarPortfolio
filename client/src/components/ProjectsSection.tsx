@@ -18,50 +18,82 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Intelligent Q&A Extraction System",
-    description: "An advanced NLP-powered system that extracts questions and answers from unstructured text with high accuracy and contextual understanding.",
-    image: "https://images.unsplash.com/photo-1616628188550-808682f3926d?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
-    tech: ["Python", "Transformers", "BERT", "SpaCy", "TensorFlow"],
-    github: "#",
-    demo: "#",
+    title: "CultureConnect – Cultural Exchange Web App",
+    description: "A platform where users from different countries connect to learn about each other's culture through chats, challenges, and virtual events.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.io"],
+    github: "https://github.com/pavankumar/culture-connect",
+    demo: "https://culture-connect.vercel.app",
     features: [
-      "Advanced NLP with transformer-based architecture for semantic understanding",
-      "Machine learning models fine-tuned for question identification and pairing",
-      "Context-aware extraction with 92% accuracy on complex documents",
-      "Multi-language support with dynamic ontology mapping",
-      "Self-improving system with feedback loops for continuous model training"
+      "Interest-based user matching for meaningful cultural exchanges",
+      "Real-time chat system with built-in translation support",
+      "Interactive cultural quiz challenges with gamification",
+      "Event calendar with RSVP system for virtual meetups",
+      "User profiles showcasing cultural backgrounds and interests"
     ]
   },
   {
     id: 2,
-    title: "Immersive Virtual Event Platform",
-    description: "A groundbreaking virtual event platform with 3D environments, spatial audio, and real-time collaboration tools for truly immersive remote gatherings.",
-    image: "https://images.unsplash.com/photo-1550029402-226115b7c579?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
-    tech: ["WebGL", "Three.js", "WebRTC", "React", "Node.js", "Redis"],
-    github: "#",
-    demo: "#",
+    title: "SkillSync – Peer Mentorship & Session Booking",
+    description: "A micro-mentorship platform where users can offer or book 30-minute knowledge-sharing sessions with peers across various professional fields.",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    tech: ["Next.js", "Tailwind CSS", "Firebase", "Google Calendar API"],
+    github: "https://github.com/pavankumar/skillsync",
+    demo: "https://skillsync-booking.vercel.app",
     features: [
-      "Custom 3D environment builder with real-time collaboration",
-      "Spatial audio integration that mimics real-world sound propagation",
-      "Dynamic networking algorithm for optimal attendee connections",
-      "AI-driven content recommendation based on interaction patterns",
-      "Real-time translation and accessibility features for global inclusivity"
+      "Comprehensive skill-based mentor search and matching system",
+      "Interactive session booking with availability slot selection",
+      "Firebase authentication and real-time database updates",
+      "Detailed session feedback and history tracking",
+      "Calendar integration for seamless scheduling experience"
     ]
   },
   {
     id: 3,
-    title: "Predictive Healthcare Analytics Platform",
-    description: "An innovative healthcare platform using machine learning to predict patient outcomes, optimize treatment plans, and improve care efficiency.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
-    tech: ["Python", "TensorFlow", "GraphQL", "React", "PostgreSQL", "Docker"],
-    github: "#",
-    demo: "#",
+    title: "ShopVerse – 3D Product Viewer E-commerce",
+    description: "A React-based e-commerce site where users can view and interact with 3D models of products before adding them to their cart for an immersive shopping experience.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    tech: ["React.js", "Three.js", "Node.js", "Express.js", "MongoDB"],
+    github: "https://github.com/pavankumar/shopverse",
+    demo: "https://shopverse-demo.vercel.app",
     features: [
-      "Privacy-preserving federated learning across medical institutions",
-      "Real-time risk stratification with explainable AI techniques",
-      "Custom medical ontology integration for domain-specific insights",
-      "Treatment optimization engine with personalized recommendations",
-      "Secure data handling compliant with HIPAA and GDPR regulations"
+      "Interactive 3D product viewer with rotate, zoom, and explore functionality",
+      "Comprehensive product listing and detail pages with specifications",
+      "Fully functional cart and checkout interface with payment simulation",
+      "User wishlist and favorites management system",
+      "Admin panel for product management and 3D model uploads"
+    ]
+  },
+  {
+    id: 4,
+    title: "InsightExtractor – Q&A Generator from Text",
+    description: "A Python tool that automatically generates question-answer pairs from long texts or PDFs, making it perfect for study materials or quick content review.",
+    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    tech: ["Python", "spaCy", "Transformers (T5)", "PyPDF2", "Streamlit"],
+    github: "https://github.com/pavankumar/insight-extractor",
+    demo: "https://insight-extractor.herokuapp.com",
+    features: [
+      "Multi-format text input support including raw text, PDFs, and web articles",
+      "Advanced NLP-powered key fact identification and extraction",
+      "Customizable question generation based on identified content importance",
+      "Export functionality for Q&A pairs in various formats (PDF, CSV, Flashcards)",
+      "Interactive web interface for easy document processing and review"
+    ]
+  },
+  {
+    id: 5,
+    title: "SmartMed Assist – iOS Medicine Tracking",
+    description: "A health-focused iOS app that helps users keep track of their medicine schedules, get timely reminders, and access basic medicine information.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    tech: ["Swift", "SwiftUI", "Firebase", "Cloud Messaging"],
+    github: "https://github.com/pavankumar/smartmed-assist",
+    demo: "https://apps.apple.com/demo/smartmed-assist",
+    features: [
+      "Intelligent medicine reminder system with customizable notifications",
+      "Cross-device synchronization through Firebase integration",
+      "Comprehensive prescription logging with date and time tracking",
+      "Medication information database with search functionality",
+      "Intuitive dashboard displaying upcoming doses and adherence stats"
     ]
   }
 ];
@@ -120,13 +152,36 @@ export const ProjectsSection = () => {
                   ))}
                 </div>
                 
-                <button 
-                  className="view-project text-primary text-sm font-medium flex items-center gap-1 mt-2 transition-all hover:gap-2 hover-target"
-                  onClick={() => setSelectedProject(project)}
-                >
-                  View Details
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                <div className="flex items-center justify-between mt-4">
+                  <div className="flex items-center gap-3">
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-primary transition-colors hover-target"
+                      aria-label="View GitHub repository"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
+                    <a 
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-primary transition-colors hover-target"
+                      aria-label="View live demo"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  </div>
+                  
+                  <button 
+                    className="view-project text-primary text-sm font-medium flex items-center gap-1 transition-all hover:gap-2 hover-target"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    View Details
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
           ))}

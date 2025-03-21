@@ -155,12 +155,13 @@
   
   /* Tech badge styling */
   .tech-badge {
-    @apply bg-primary/10 border border-primary/30 rounded px-2 py-0.5 text-xs transition-all duration-300;
+    @apply bg-primary/10 border border-primary/30 rounded-full px-3 py-1 text-xs text-primary-foreground font-medium tracking-wide transition-all duration-300;
+    box-shadow: 0 0 4px rgba(77, 143, 235, 0.2);
   }
   
   .tech-badge:hover {
     @apply bg-primary/20 translate-y-[-2px] text-primary;
-    box-shadow: 0 0 8px rgba(77, 143, 235, 0.5);
+    box-shadow: 0 0 10px rgba(77, 143, 235, 0.5);
   }
   
   /* Heading glow effect */

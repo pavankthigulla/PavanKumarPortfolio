@@ -99,10 +99,28 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 </ul>
               </div>
               
-              <div className="flex justify-end pt-2">
+              <div className="flex flex-wrap gap-4 pt-4">
+                <a 
+                  href={project.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-transparent border border-primary hover:bg-primary/20 text-white px-5 py-2 rounded-md font-medium transition-all duration-300 flex items-center gap-2 hover-target animate-glow"
+                >
+                  View Code
+                  <Github className="w-4 h-4" />
+                </a>
+                <a 
+                  href={project.demo} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-transparent border border-primary hover:bg-primary/20 text-white px-5 py-2 rounded-md font-medium transition-all duration-300 flex items-center gap-2 hover-target animate-glow"
+                >
+                  Live Demo
+                  <ExternalLink className="w-4 h-4" />
+                </a>
                 <button 
                   onClick={onClose}
-                  className="bg-primary hover:bg-primary/90 text-black px-5 py-2 rounded-md font-medium transition-all duration-300 flex items-center gap-2 hover-target animate-glow"
+                  className="bg-transparent border border-primary hover:bg-primary/20 text-white px-5 py-2 rounded-md font-medium transition-all duration-300 flex items-center gap-2 ml-auto hover-target animate-glow"
                 >
                   Close
                   <X className="w-4 h-4" />
