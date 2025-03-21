@@ -60,9 +60,7 @@ const tools: Skill[] = [
   { name: "Postman", icon: <Code size={24} className="text-orange-400" /> }
 ];
 
-const certifications = [
-  { name: "If there were a certification for dodging certifications, I'd probably not have that one either.", issuer: "" }
-];
+
 
 export const SkillsSection = () => {
   const [ref, inView] = useInView({
@@ -193,25 +191,7 @@ export const SkillsSection = () => {
           </div>
         </div>
         
-        {/* Certifications */}
-        <div className="mt-16" data-animate>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center heading-glow">
-            <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Certifications</span>
-          </h2>
-          
-          <div className="max-w-xl mx-auto">
-            {certifications.map((cert, index) => (
-              <div key={index} className="flex gap-4 items-center p-5 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
-                <div className="animate-laugh bg-primary/10 p-4 rounded-full border border-primary/30 shadow-lg" style={{ animation: 'laugh 3s ease-in-out infinite' }}>
-                  <span className="text-6xl block">🤣</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold heading-glow leading-relaxed">{cert.name}</h4>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );
