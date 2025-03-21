@@ -101,7 +101,7 @@
   }
   
   .timeline-item {
-    @apply pl-10 relative mb-8;
+    @apply pl-10 relative mb-12;
   }
   
   .timeline-item::before {

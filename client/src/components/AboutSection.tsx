@@ -18,17 +18,16 @@ export const AboutSection = () => {
             
             <div className="text-muted-foreground space-y-4 mb-8">
               <p>
-                Hello! I'm Pavan, an experienced Software Engineer with expertise in full-stack development.
-                I specialize in React, Spring Boot, and Node.js, building modern and efficient applications.
+                Hey, I'm Pavan. I'm someone who's always exploring whether it's new ideas, unexpected problems, or just the way things work. 
+                I enjoy diving into the unknown, figuring out how stuff fits together, and constantly learning along the way.
               </p>
               <p>
-                I'm proficient in enhancing project efficiency, optimizing API integrations, and delivering scalable, 
-                user-focused solutions. With a strong background in testing, deployment, and Agile practices, 
-                I have a proven track record of improving system performance and reliability.
+                Life's not always straightforward, but I've come to appreciate the moments where things click, even if they come after a lot of trial and error. 
+                For me, it's less about having all the answers and more about enjoying the process of figuring things out.
               </p>
               <p>
-                I'm committed to leveraging my technical expertise and problem-solving skills to contribute to innovative 
-                software engineering projects.
+                I believe in growth, not just in skills, but in perspective and mindset. Every day is a chance to evolve, 
+                challenge myself, and hopefully leave things a little better than I found them :)
               </p>
             </div>
             
@@ -36,19 +35,19 @@ export const AboutSection = () => {
               <div className="timeline-item" data-animate>
                 <h3 className="font-display font-semibold text-lg">Software Engineer @ Edward Jones</h3>
                 <p className="text-primary text-sm mb-2">01/2024 - Present</p>
-                <p className="text-muted-foreground">Developing backend services using Java, Spring Framework, and building responsive frontend interfaces with React.</p>
+                <p className="text-muted-foreground text-sm leading-relaxed mt-2">Currently working with a microservices architecture to develop backend services using Spring Boot, Java, and Kafka. I design and build services that interact seamlessly, ensuring smooth data processing and reliable communication. My role also involves identifying and removing performance bottlenecks and improving how services exchange data in real time for optimal system efficiency.</p>
               </div>
               
               <div className="timeline-item" data-animate>
                 <h3 className="font-display font-semibold text-lg">Full Stack Developer @ Zemoso Technologies</h3>
                 <p className="text-primary text-sm mb-2">01/2022 - 05/2022</p>
-                <p className="text-muted-foreground">Designed RESTful APIs with Java/Spring, developed React frontend components, and optimized MongoDB database performance.</p>
+                <p className="text-muted-foreground">At Zemoso, I worked on both frontend and backend development, with my main tech stack being React.js for building user interfaces and Spring Boot with Hibernate for the backend. I focused on connecting the frontend and backend to ensure everything worked smoothly while sticking to clean code practices.</p>
               </div>
               
               <div className="timeline-item" data-animate>
                 <h3 className="font-display font-semibold text-lg">Full Stack Developer @ Fagito</h3>
                 <p className="text-primary text-sm mb-2">07/2020 - 12/2021</p>
-                <p className="text-muted-foreground">Built food delivery platform backend with Java/Spring Boot, integrated payment gateways, and implemented CI/CD pipelines.</p>
+                <p className="text-muted-foreground">As part of a small team, we handled every aspect of the food delivery platform, diving into both frontend and backend development. I worked on building backend services with Spring Boot, developing the frontend using React, integrating payment systems, and creating a smart restaurant-matching system to reduce delivery delays. We also improved the order management system, ensuring it was good enough to handle high volumes of transactions during peak times.</p>
               </div>
             </div>
           </div>

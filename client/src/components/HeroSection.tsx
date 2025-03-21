@@ -28,8 +28,8 @@ export const HeroSection = () => {
           <h1 className="text-4xl md:text-7xl font-display font-bold mb-4 hero-title">Pavan Kumar</h1>
           <h2 className="text-xl md:text-3xl text-muted-foreground font-display mb-8 hero-subtitle">Software Engineer</h2>
           <p className="max-w-lg mx-auto text-muted-foreground mb-12 hero-description">
-            Experienced Software Engineer with expertise in full-stack development, specializing in React, Spring Boot and Node.js.
-            Creating scalable, user-focused solutions with a passion for innovation.
+            I turn complex problems into simple solutions, creating things that not only work but feel intuitive. 
+            Constantly pushing the boundaries of what's possible, I bring ideas to life with thoughtful design and precise execution.
           </p>
           
           <div className="flex justify-center gap-4 hero-cta">
