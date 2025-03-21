@@ -185,7 +185,8 @@ export const ContactSection = () => {
               
               <Button 
                 type="submit" 
-                className="w-full bg-primary/80 hover:bg-primary/60 text-white font-medium transition-all duration-300 hover-target animate-glow"
+                variant="outline"
+                className="w-full bg-transparent border-primary text-white hover:bg-primary/20 font-medium transition-all duration-300 hover-target animate-glow"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
