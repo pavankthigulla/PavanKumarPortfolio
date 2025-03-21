@@ -63,10 +63,10 @@ export const CustomCursor = () => {
         className={`fixed pointer-events-none z-50 rounded-full bg-primary transition-all duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
         style={{ 
           transform: `translate(${position.x}px, ${position.y}px)`,
-          left: -3,
-          top: -3,
-          width: '6px',
-          height: '6px',
+          left: -4,
+          top: -4,
+          width: '8px',
+          height: '8px',
         }}
       />
       

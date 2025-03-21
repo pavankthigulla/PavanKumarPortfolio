@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { SimpleGame } from "./SimpleGame";
 
 export const AboutSection = () => {
   const [ref, inView] = useInView({
@@ -10,8 +11,8 @@ export const AboutSection = () => {
   return (
     <section id="about" ref={ref} className="section bg-muted/30 py-24" data-section="about">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="md:w-1/2" data-animate>
+        <div className="flex flex-col md:flex-row gap-12 items-start">
+          <div className="md:w-7/12" data-animate>
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 relative">
               <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">About Me</span>
             </h2>
@@ -52,7 +53,11 @@ export const AboutSection = () => {
             </div>
           </div>
           
-
+          <div className="md:w-5/12 mt-10 md:mt-20" data-animate>
+            <div className="transform transition-all duration-500 hover:scale-[1.02]">
+              <SimpleGame />
+            </div>
+          </div>
         </div>
       </div>
     </section>

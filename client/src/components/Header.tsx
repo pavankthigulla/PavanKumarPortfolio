@@ -23,26 +23,35 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 px-5 py-3 flex justify-between items-center transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 w-full z-50 px-5 py-3 flex justify-center items-center transition-all duration-300 ${
       scrolled ? "bg-background/80 backdrop-blur-lg shadow-md" : "bg-transparent"
     }`}>
-      <div className="text-2xl font-display font-bold">
-        <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">
-          Pavan
-        </span>
-        <span className="text-white">.</span>
-      </div>
       
       <nav className="hidden md:flex gap-8">
-        <a href="#home" className="nav-link font-medium hover-target">Home</a>
-        <a href="#about" className="nav-link font-medium hover-target">About</a>
-        <a href="#projects" className="nav-link font-medium hover-target">Projects</a>
-        <a href="#skills" className="nav-link font-medium hover-target">Skills</a>
-        <a href="#contact" className="nav-link font-medium hover-target">Contact</a>
+        <a href="#home" className="nav-link font-medium hover-target relative group">
+          <span className="inline-block">Home</span>
+          <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+        </a>
+        <a href="#about" className="nav-link font-medium hover-target relative group">
+          <span className="inline-block">About</span>
+          <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+        </a>
+        <a href="#projects" className="nav-link font-medium hover-target relative group">
+          <span className="inline-block">Projects</span>
+          <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+        </a>
+        <a href="#skills" className="nav-link font-medium hover-target relative group">
+          <span className="inline-block">Skills</span>
+          <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+        </a>
+        <a href="#contact" className="nav-link font-medium hover-target relative group">
+          <span className="inline-block">Contact</span>
+          <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+        </a>
       </nav>
       
       <button 
-        className="md:hidden hover-target" 
+        className="fixed left-5 md:hidden hover-target" 
         onClick={() => setIsMenuOpen(true)}
         aria-label="Open menu"
       >
