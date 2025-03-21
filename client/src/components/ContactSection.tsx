@@ -1,0 +1,199 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Mail, MapPin, Github, Linkedin, Globe } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
+export const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+  
+  const onSubmit = async (data: ContactFormValues) => {
+    setIsSubmitting(true);
+    try {
+      await apiRequest("POST", "/api/contact", data);
+      
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+        variant: "default",
+      });
+      
+      form.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
+  return (
+    <section id="contact" className="section py-24" data-section="contact">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center" data-animate>
+          <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Get In Touch</span>
+        </h2>
+        
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6" data-animate>
+            <p className="text-lg text-muted-foreground mb-6">
+              I'm currently available for new opportunities. Whether you have a project idea, job opportunity, or just want to connect, feel free to reach out!
+            </p>
+            
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="bg-primary/20 p-3 rounded-full">
+                  <Mail className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Email</h3>
+                  <a href="mailto:pavank02331@gmail.com" className="text-muted-foreground hover:text-primary transition-colors hover-target">pavank02331@gmail.com</a>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <div className="bg-primary/20 p-3 rounded-full">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Location</h3>
+                  <p className="text-muted-foreground">St. Louis (Remote)</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex gap-4 pt-6">
+              <a href="#" className="bg-background hover:bg-muted p-3 rounded-full transition-colors hover-target">
+                <Github className="w-5 h-5 text-primary" />
+              </a>
+              <a href="#" className="bg-background hover:bg-muted p-3 rounded-full transition-colors hover-target">
+                <Linkedin className="w-5 h-5 text-primary" />
+              </a>
+              <a href="#" className="bg-background hover:bg-muted p-3 rounded-full transition-colors hover-target">
+                <Globe className="w-5 h-5 text-primary" />
+              </a>
+            </div>
+          </div>
+          
+          <Form {...form}>
+            <form 
+              onSubmit={form.handleSubmit(onSubmit)} 
+              className="space-y-4 bg-card p-6 rounded-lg shadow-lg" 
+              data-animate
+            >
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Your name" 
+                        className="bg-background border border-gray-700 focus:border-primary transition-colors" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="your.email@example.com" 
+                        className="bg-background border border-gray-700 focus:border-primary transition-colors" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Subject</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="What's this about?" 
+                        className="bg-background border border-gray-700 focus:border-primary transition-colors" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        placeholder="Your message here..." 
+                        className="bg-background border border-gray-700 focus:border-primary transition-colors" 
+                        rows={5}
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <Button 
+                type="submit" 
+                className="w-full bg-primary hover:bg-primary/90 text-black font-medium transition-colors hover-target"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+          </Form>
+        </div>
+      </div>
+    </section>
+  );
+};

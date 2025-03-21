@@ -1,0 +1,64 @@
+PAVAN KUMAR
+ +1 (660) 528 1598-pavank02331@gmail.com- LinkedIn Profile
+ PROFESSIONAL SUMMARY
+ Experienced Software Engineer with expertise in full-stack development, specializing in React, Spring Boot and Node.js and mod
+ern technologies. Proficient in enhancing project efficiency, optimizing API integrations, and delivering scalable, user-focused
+ solutions. Adept in testing, deployment, and Agile practices, with a proven track record of improving system performance and re
+liability. Committed to leveraging technical expertise and problem-solving skills to contribute to innovative software engineering
+ projects.
+ EDUCATION
+ Northwest Missouri State University
+ Maryville, MO
+ Masters in Applied Computer Science. GPA: 4.0/4.0
+ Relevant Coursework: Java, Web Applications, Frameworks, Advanced Database, Project Management, Mobile Computing.
+ TECHNICAL SKILLS
+ •
+ •
+ •
+ •
+ Programming Languages: Java, C, Node, Spring Boot, HTML, CSS, JavaScript, Python.
+ Web Technologies & Frameworks: ReactJS, Angular, BootStrap, Node.js, Microservices, REST APIs.
+ Tools: Version Control/Git, GitLab, VS Code, Eclipse, Netbeans, GITHUB Desktop, Git Bash, Agile, JIRA.
+ Cloud & Databases: MySQL, MongoDB, Firebase, AWS, Azure.
+ WORK EXPERIENCE
+ Software Engineer
+ Edward Jones, St louis(Remote)
+ • Developed backend services using Java, Spring Framework, WebFlux, REST APIs, JUnit, and Jenkins.
+ • Built responsive frontend interfaces using React, integrated with backend REST APIs and JSON data.
+ • Managed MySQL databases, created schemas, optimized queries, and ensured data integrity.
+ • Deployed applications on AWS, implementing security, caching, logging, and scalability.
+ • Actively participated in Agile ceremonies, conducted code reviews, and handled production troubleshooting.
+ Full Stack Developer
+ Zemoso Technologies, Hyderabad, IN
+ 01/2024- Present
+ 01/2022- 05/2022
+ • Designed and developed RESTful APIs using Java and Spring Framework, enabling seamless integration with third-party
+ services.
+ • Developed front-end components using react, ensuring a responsive and user-friendly interface.
+ • Optimized application performance by implementing efficient caching and database indexing strategies in MongoDB.
+ • Deployed applications on AWS, leveraging cloud services for scalability and reliability.
+ Full Stack Developer
+ Fagito, Hyderabad, IN
+ • Built and maintained the backend of the food delivery platform using Java and Spring Boot.
+ 07/2020- 12/2021
+ • Integrated payment gateways and third-party APIs, enhancing the platform’s functionality and user convenience.
+ • Developed real-time tracking features using WebSockets, React, and JSON, improving user engagement.
+ • Implemented CI/CD pipelines using Jenkins, reducing deployment times and increasing release frequency.
+ ADDITIONAL WORK EXPERIENCE
+ •
+ PEP [Pre Education Program]
+ EPAM Systems
+ 09/2020- 06/2021
+ • Leveraged Core Java and OOP concepts to build a strong programming foundation and create modular, reusable code.
+ •
+ • Applied design patterns and industry best practices in practical tasks, enhancing software scalability and maintainability.
+ Executed testing procedures in both manual and automated settings, verifying software quality and performance.
+ •
+ Utilized version control systems like Git and Bitbucket to manage and collaborate on code.
+ CERTIFICATIONS
+ •
+ Object Oriented Programming in Java.
+ • Python Data Structures
+ •
+ • Responsive Web Design: HTML + CSS + JS
+ SQL using MySql
