@@ -470,7 +470,10 @@ export const SimpleGame = () => {
 
   return (
     <div className="bg-muted/20 rounded-lg p-4 w-full shadow-md flex flex-col items-center backdrop-blur-sm">
-      <h3 className="text-xl font-bold mb-3 text-center">Boost Catcher</h3>
+      <div className="flex flex-col items-center mb-3">
+        <h3 className="text-xl font-bold text-center">Boost Catcher</h3>
+        <p className="text-sm text-primary italic mt-1">Bored? Pass the time with this!</p>
+      </div>
       
       <div className="mb-2 w-full flex justify-between items-center">
         <div className="text-sm">Score: <span className="font-bold">{score}</span></div>
@@ -486,10 +489,11 @@ export const SimpleGame = () => {
         
         {!gameStarted && !gameOver && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/80 rounded-md">
-            <h4 className="text-lg font-bold mb-4">Avoid Red</h4>
+            <h4 className="text-lg font-bold mb-2">Avoid Red</h4>
+            <p className="text-sm text-muted-foreground mb-4 text-center px-4">Catch green circles for points, but watch out for red obstacles!</p>
             <button 
               onClick={handleStartGame}
-              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 hover-target transition-colors"
+              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 hover-target transition-colors shadow-lg hover:shadow-primary/20"
             >
               Start Game
             </button>
@@ -503,7 +507,7 @@ export const SimpleGame = () => {
             <p className="mb-4">You reached level <span className="font-bold">{level}</span></p>
             <button 
               onClick={handleStartGame}
-              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 hover-target transition-colors"
+              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 hover-target transition-colors shadow-lg hover:shadow-primary/20"
             >
               Play Again
             </button>

@@ -40,6 +40,12 @@ export const AboutSection = () => {
               </div>
               
               <div className="timeline-item" data-animate>
+                <h3 className="font-display font-semibold text-lg heading-glow">Northwest Missouri State University</h3>
+                <p className="text-primary text-sm mb-2">08/2022 - 12/2023 (GPA: 4.0)</p>
+                <p className="text-muted-foreground text-sm leading-relaxed mt-2">Pursued a master's degree in Applied Computer Science and worked on a project developing a healthcare app that helps patients take medicines on time by sending reminders, tracking health status, managing prescriptions, and enabling easy communication with doctors.</p>
+              </div>
+              
+              <div className="timeline-item" data-animate>
                 <h3 className="font-display font-semibold text-lg heading-glow">Full Stack Developer @ Zemoso Technologies</h3>
                 <p className="text-primary text-sm mb-2">01/2022 - 05/2022</p>
                 <p className="text-muted-foreground text-sm leading-relaxed mt-2">At Zemoso, I worked on both frontend and backend development, with my main tech stack being React.js for building user interfaces and Spring Boot with Hibernate for the backend. I focused on connecting the frontend and backend to ensure everything worked smoothly while sticking to clean code practices.</p>

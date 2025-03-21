@@ -64,7 +64,8 @@ const certifications = [
   { name: "Object Oriented Programming in Java", issuer: "Online Education Platform" },
   { name: "Python Data Structures", issuer: "Online Education Platform" },
   { name: "Responsive Web Design", issuer: "HTML + CSS + JS" },
-  { name: "SQL using MySQL", issuer: "Database Management Course" }
+  { name: "SQL using MySQL", issuer: "Database Management Course" },
+  { name: "If there were a certification for dodging certifications, I'd probably not have that one either. 😂", issuer: "Self-Certified" }
 ];
 
 export const SkillsSection = () => {
