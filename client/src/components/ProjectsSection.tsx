@@ -82,18 +82,20 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: "SmartMed Assist – iOS Medicine Tracking",
-    description: "A health-focused iOS app that helps users keep track of their medicine schedules, get timely reminders, and access basic medicine information.",
-    image: "https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    title: "SmartMed Assist – Medication Management App",
+    description: "A comprehensive iOS health app designed to help users manage their medications, track prescriptions, receive dose reminders, and access vital medicine information in one place.",
+    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
     tech: ["Swift (language)", "SwiftUI (for building UI)", "Firebase Firestore (data storage)", "Firebase Auth (authentication)", "Cloud Messaging (notifications)"],
     github: "https://github.com/pavankumar/smartmed-assist",
     demo: "https://apps.apple.com/demo/smartmed-assist",
     features: [
-      "Intelligent medicine reminder system with customizable notifications",
-      "Cross-device synchronization through Firebase integration",
-      "Comprehensive prescription logging with date and time tracking",
-      "Medication information database with search functionality",
-      "Intuitive dashboard displaying upcoming doses and adherence stats"
+      "Smart medication reminder system with customizable time-based notifications",
+      "Pill identification feature using camera and image recognition technology",
+      "Drug interaction checker to prevent harmful medication combinations",
+      "Comprehensive prescription management with refill tracking and pharmacy integration",
+      "Family sharing capabilities to help manage medications for loved ones",
+      "Emergency medical information card accessible from lock screen",
+      "Medication adherence tracking with visual progress reports and insights"
     ]
   }
 ];
