@@ -472,7 +472,7 @@ export const SimpleGame = () => {
     <div className="bg-muted/20 rounded-lg p-4 w-full shadow-md flex flex-col items-center backdrop-blur-sm">
       <div className="flex flex-col items-center mb-3">
         <h3 className="text-xl font-bold text-center">Boost Catcher</h3>
-        <p className="text-sm text-primary italic mt-1">Bored? Pass the time with this!</p>
+        <p className="text-sm text-primary italic mt-1">Bored? Pass the time with this</p>
       </div>
       
       <div className="mb-2 w-full flex justify-between items-center">
