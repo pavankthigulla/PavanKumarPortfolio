@@ -1,39 +1,63 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { animateSkillBars } from "@/lib/animations";
-import { Check } from "lucide-react";
+import { Check, Code, Database, Cloud, Server, FileCode, GitBranch } from "lucide-react";
+import { 
+  FaJsSquare, FaReact, FaHtml5, FaCss3Alt, FaAngular, FaBootstrap, 
+  FaJava, FaNodeJs, FaPython, FaDocker, FaAws, FaMicrosoft, FaGithub, FaGitlab
+} from "react-icons/fa";
 
 interface Skill {
   name: string;
-  percentage: number;
+  icon: React.ReactNode;
 }
 
 const frontendSkills: Skill[] = [
-  { name: "JavaScript / TypeScript", percentage: 90 },
-  { name: "React", percentage: 92 },
-  { name: "HTML / CSS", percentage: 88 },
-  { name: "Angular", percentage: 85 },
-  { name: "Bootstrap", percentage: 90 }
+  { name: "JavaScript", icon: <FaJsSquare size={24} className="text-yellow-400" /> },
+  { name: "React", icon: <FaReact size={24} className="text-cyan-400" /> },
+  { name: "HTML", icon: <FaHtml5 size={24} className="text-orange-500" /> },
+  { name: "CSS", icon: <FaCss3Alt size={24} className="text-blue-400" /> },
+  { name: "Angular", icon: <FaAngular size={24} className="text-red-500" /> },
+  { name: "Bootstrap", icon: <FaBootstrap size={24} className="text-purple-500" /> }
 ];
 
 const backendSkills: Skill[] = [
-  { name: "Java / Spring Boot", percentage: 95 },
-  { name: "Node.js", percentage: 85 },
-  { name: "Python", percentage: 80 },
-  { name: "REST APIs", percentage: 92 },
-  { name: "Microservices", percentage: 85 }
+  { name: "Java", icon: <FaJava size={24} className="text-orange-600" /> },
+  { name: "Spring Boot", icon: <Server size={24} className="text-green-500" /> },
+  { name: "Node.js", icon: <FaNodeJs size={24} className="text-green-600" /> },
+  { name: "Python", icon: <FaPython size={24} className="text-yellow-500" /> },
+  { name: "REST APIs", icon: <Code size={24} className="text-gray-400" /> },
+  { name: "Microservices", icon: <Server size={24} className="text-blue-300" /> },
+  { name: "Docker", icon: <FaDocker size={24} className="text-blue-500" /> }
+];
+
+const databaseSkills: Skill[] = [
+  { name: "MySQL", icon: <Database size={24} className="text-blue-600" /> },
+  { name: "MongoDB", icon: <Database size={24} className="text-green-500" /> },
+  { name: "PostgreSQL", icon: <Database size={24} className="text-blue-400" /> }
+];
+
+const cloudSkills: Skill[] = [
+  { name: "AWS", icon: <FaAws size={24} className="text-yellow-500" /> },
+  { name: "Azure", icon: <FaMicrosoft size={24} className="text-blue-500" /> },
+  { name: "Cloud Computing", icon: <Cloud size={24} className="text-sky-400" /> }
 ];
 
 const otherSkills: Skill[] = [
-  { name: "MySQL / MongoDB", percentage: 88 },
-  { name: "AWS / Azure", percentage: 82 },
-  { name: "CI/CD", percentage: 85 },
-  { name: "Testing (JUnit, Jest)", percentage: 90 },
-  { name: "Agile / JIRA", percentage: 95 }
+  { name: "JUnit", icon: <FileCode size={24} className="text-red-500" /> },
+  { name: "Jest", icon: <FileCode size={24} className="text-red-600" /> },
+  { name: "CI/CD", icon: <GitBranch size={24} className="text-green-400" /> },
+  { name: "Agile", icon: <Check size={24} className="text-blue-500" /> },
+  { name: "JIRA", icon: <Check size={24} className="text-blue-400" /> }
 ];
 
-const tools = [
-  "VS Code", "Eclipse", "Git/GitHub", "GitLab", "JIRA", "Postman"
+const tools: Skill[] = [
+  { name: "VS Code", icon: <Code size={24} className="text-blue-500" /> },
+  { name: "Eclipse", icon: <Code size={24} className="text-purple-500" /> },
+  { name: "Git", icon: <GitBranch size={24} className="text-orange-600" /> },
+  { name: "GitHub", icon: <FaGithub size={24} className="text-white" /> },
+  { name: "GitLab", icon: <FaGitlab size={24} className="text-orange-500" /> },
+  { name: "Postman", icon: <Code size={24} className="text-orange-400" /> }
 ];
 
 const certifications = [
@@ -63,111 +87,133 @@ export const SkillsSection = () => {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          {/* Frontend Skills */}
           <div className="space-y-6" data-animate>
             <h3 className="text-xl font-display font-semibold relative heading-glow">
               <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Frontend Development</span>
             </h3>
             
-            <div className="space-y-5">
+            <div className="grid grid-cols-2 gap-4">
               {frontendSkills.map((skill, index) => (
-                <div key={index}>
-                  <div className="flex justify-between mb-1">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-primary text-sm">{skill.percentage}%</span>
+                <div key={index} className="flex items-center gap-3 p-3 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
+                  <div className="w-10 h-10 flex items-center justify-center bg-background/80 rounded-lg border border-border/30 p-1.5">
+                    {skill.icon}
                   </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.percentage}%` }} 
-                      data-width={`${skill.percentage}%`}
-                    ></div>
-                  </div>
+                  <span className="font-medium text-sm">{skill.name}</span>
                 </div>
               ))}
             </div>
           </div>
           
+          {/* Backend Skills */}
           <div className="space-y-6" data-animate>
             <h3 className="text-xl font-display font-semibold relative heading-glow">
               <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Backend Development</span>
             </h3>
             
-            <div className="space-y-5">
+            <div className="grid grid-cols-2 gap-4">
               {backendSkills.map((skill, index) => (
-                <div key={index}>
-                  <div className="flex justify-between mb-1">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-primary text-sm">{skill.percentage}%</span>
+                <div key={index} className="flex items-center gap-3 p-3 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
+                  <div className="w-10 h-10 flex items-center justify-center bg-background/80 rounded-lg border border-border/30 p-1.5">
+                    {skill.icon}
                   </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.percentage}%` }} 
-                      data-width={`${skill.percentage}%`}
-                    ></div>
-                  </div>
+                  <span className="font-medium text-sm">{skill.name}</span>
                 </div>
               ))}
             </div>
           </div>
           
+          {/* Database Skills */}
           <div className="space-y-6" data-animate>
             <h3 className="text-xl font-display font-semibold relative heading-glow">
-              <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Other Skills</span>
+              <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Databases</span>
             </h3>
             
-            <div className="space-y-5">
+            <div className="grid grid-cols-2 gap-4">
+              {databaseSkills.map((skill, index) => (
+                <div key={index} className="flex items-center gap-3 p-3 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
+                  <div className="w-10 h-10 flex items-center justify-center bg-background/80 rounded-lg border border-border/30 p-1.5">
+                    {skill.icon}
+                  </div>
+                  <span className="font-medium text-sm">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Cloud Skills */}
+          <div className="space-y-6" data-animate>
+            <h3 className="text-xl font-display font-semibold relative heading-glow">
+              <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Cloud Technologies</span>
+            </h3>
+            
+            <div className="grid grid-cols-2 gap-4">
+              {cloudSkills.map((skill, index) => (
+                <div key={index} className="flex items-center gap-3 p-3 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
+                  <div className="w-10 h-10 flex items-center justify-center bg-background/80 rounded-lg border border-border/30 p-1.5">
+                    {skill.icon}
+                  </div>
+                  <span className="font-medium text-sm">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Other Skills */}
+          <div className="space-y-6" data-animate>
+            <h3 className="text-xl font-display font-semibold relative heading-glow">
+              <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Development Practices</span>
+            </h3>
+            
+            <div className="grid grid-cols-2 gap-4">
               {otherSkills.map((skill, index) => (
-                <div key={index}>
-                  <div className="flex justify-between mb-1">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-primary text-sm">{skill.percentage}%</span>
+                <div key={index} className="flex items-center gap-3 p-3 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
+                  <div className="w-10 h-10 flex items-center justify-center bg-background/80 rounded-lg border border-border/30 p-1.5">
+                    {skill.icon}
                   </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.percentage}%` }} 
-                      data-width={`${skill.percentage}%`}
-                    ></div>
+                  <span className="font-medium text-sm">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Tools */}
+          <div className="space-y-6" data-animate>
+            <h3 className="text-xl font-display font-semibold relative heading-glow">
+              <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Tools & Utilities</span>
+            </h3>
+            
+            <div className="grid grid-cols-2 gap-4">
+              {tools.map((tool, index) => (
+                <div key={index} className="flex items-center gap-3 p-3 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
+                  <div className="w-10 h-10 flex items-center justify-center bg-background/80 rounded-lg border border-border/30 p-1.5">
+                    {tool.icon}
                   </div>
+                  <span className="font-medium text-sm">{tool.name}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
         
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8" data-animate>
-          <div className="bg-card rounded-lg p-6 space-y-4">
-            <h3 className="text-xl font-display font-semibold heading-glow">Tools & Technologies</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {tools.map((tool, index) => (
-                <div key={index} className="text-center p-3 bg-background/50 rounded-lg hover:bg-background/80 transition-colors hover-target">
-                  <div className="w-8 h-8 mx-auto mb-2 text-primary flex items-center justify-center">
-                    <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                      <span className="text-lg">⚒️</span>
-                    </div>
-                  </div>
-                  <p className="text-sm font-medium">{tool}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Certifications */}
+        <div className="mt-16" data-animate>
+          <h3 className="text-xl font-display font-semibold relative heading-glow mb-6 text-center">
+            <span className="bg-gradient-to-r from-primary to-[#00d0ff] bg-clip-text text-transparent">Certifications</span>
+          </h3>
           
-          <div className="bg-card rounded-lg p-6 space-y-4">
-            <h3 className="text-xl font-display font-semibold heading-glow">Certifications</h3>
-            <div className="space-y-4">
-              {certifications.map((cert, index) => (
-                <div key={index} className="flex gap-4 items-center p-3 bg-background/50 rounded-lg hover-target">
-                  <div className="bg-primary/20 p-2 rounded-lg">
-                    <Check className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold heading-glow">{cert.name}</h4>
-                    <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {certifications.map((cert, index) => (
+              <div key={index} className="flex gap-4 items-center p-4 bg-card/50 rounded-lg hover:bg-card/80 transition-all duration-300 hover-target border border-border/30">
+                <div className="bg-primary/20 p-2 rounded-full">
+                  <Check className="w-6 h-6 text-primary" />
                 </div>
-              ))}
-            </div>
+                <div>
+                  <h4 className="font-semibold heading-glow">{cert.name}</h4>
+                  <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

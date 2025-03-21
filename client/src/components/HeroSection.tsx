@@ -34,7 +34,7 @@ export const HeroSection = () => {
           
           <div className="flex justify-center gap-4 hero-cta">
             <a 
-              href="#projects" 
+              href="#about" 
               className="bg-transparent hover:bg-primary/10 text-primary border-2 border-primary px-6 py-3 rounded-md font-medium 
               transition-all duration-300 hover:shadow-[0_0_15px_rgba(14,231,183,0.4)] hover-target"
             >
