@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -11,6 +11,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { SiGmail } from "react-icons/si";
 import { HiLocationMarker } from "react-icons/hi";
 import { AnimatedText } from "./AnimatedText";
+import { fireConfetti } from "@/lib/confetti";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -24,6 +25,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 export const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const formContainerRef = useRef<HTMLDivElement>(null);
   
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -40,8 +42,11 @@ export const ContactSection = () => {
     try {
       await apiRequest("POST", "/api/contact", data);
       
+      // Success! Trigger confetti celebration
+      fireConfetti();
+      
       toast({
-        title: "Message sent!",
+        title: "Message sent! 🎉",
         description: "Thanks for reaching out. I'll get back to you soon.",
         variant: "default",
       });
@@ -99,95 +104,97 @@ export const ContactSection = () => {
             </div>
           </div>
           
-          <Form {...form}>
-            <form 
-              onSubmit={form.handleSubmit(onSubmit)} 
-              className="space-y-4 bg-card p-6 rounded-lg shadow-lg border border-primary/20" 
-              data-animate
-            >
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input 
-                        placeholder="Your name" 
-                        className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input 
-                        placeholder="your.email@example.com" 
-                        className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="subject"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Subject</FormLabel>
-                    <FormControl>
-                      <Input 
-                        placeholder="What's this about?" 
-                        className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea 
-                        placeholder="Your message here..." 
-                        className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
-                        rows={5}
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <Button 
-                type="submit" 
-                variant="outline"
-                className="w-full bg-transparent border-primary text-white hover:bg-primary/20 font-medium transition-all duration-300 hover-target animate-glow"
-                disabled={isSubmitting}
+          <div ref={formContainerRef}>
+            <Form {...form}>
+              <form 
+                onSubmit={form.handleSubmit(onSubmit)} 
+                className="space-y-4 bg-card p-6 rounded-lg shadow-lg border border-primary/20" 
+                data-animate
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-          </Form>
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Your name" 
+                          className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="your.email@example.com" 
+                          className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Subject</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="What's this about?" 
+                          className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Your message here..." 
+                          className="bg-background border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all" 
+                          rows={5}
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <Button 
+                  type="submit" 
+                  variant="outline"
+                  className="w-full bg-transparent border-primary text-white hover:bg-primary/20 font-medium transition-all duration-300 hover-target animate-glow"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </Form>
+          </div>
         </div>
       </div>
     </section>
