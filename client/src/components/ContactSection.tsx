@@ -6,7 +6,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Github, Linkedin, Globe } from "lucide-react";
+import { Mail, MapPin, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -92,14 +92,14 @@ export const ContactSection = () => {
             </div>
             
             <div className="flex gap-4 pt-6">
-              <a href="#" className="bg-background hover:bg-muted p-3 rounded-full transition-colors hover-target">
-                <Github className="w-5 h-5 text-primary" />
-              </a>
-              <a href="#" className="bg-background hover:bg-muted p-3 rounded-full transition-colors hover-target">
+              <a 
+                href="https://www.linkedin.com/in/pavan-kumar-698b65277/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-background hover:bg-muted p-3 rounded-full transition-colors hover-target"
+                aria-label="LinkedIn Profile"
+              >
                 <Linkedin className="w-5 h-5 text-primary" />
-              </a>
-              <a href="#" className="bg-background hover:bg-muted p-3 rounded-full transition-colors hover-target">
-                <Globe className="w-5 h-5 text-primary" />
               </a>
             </div>
           </div>
