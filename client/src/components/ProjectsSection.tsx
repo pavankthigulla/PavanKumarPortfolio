@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { animateProjectCard } from "@/lib/animations";
-import { ArrowRight, Github, ExternalLink, X } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ProjectModal } from "./ProjectModal";
 
 interface Project {
@@ -152,28 +152,7 @@ export const ProjectsSection = () => {
                   ))}
                 </div>
                 
-                <div className="flex items-center justify-between mt-4">
-                  <div className="flex items-center gap-3">
-                    <a 
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-primary transition-colors hover-target"
-                      aria-label="View GitHub repository"
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
-                    <a 
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-primary transition-colors hover-target"
-                      aria-label="View live demo"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
-                  </div>
-                  
+                <div className="flex items-center justify-end mt-4">                  
                   <button 
                     className="view-project text-primary text-sm font-medium flex items-center gap-1 transition-all hover:gap-2 hover-target"
                     onClick={() => setSelectedProject(project)}
