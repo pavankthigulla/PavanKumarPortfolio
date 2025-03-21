@@ -507,7 +507,7 @@ export const SimpleGame = () => {
             <p className="mb-4">You reached level <span className="font-bold">{level}</span></p>
             <button 
               onClick={handleStartGame}
-              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 hover-target transition-colors shadow-lg hover:shadow-primary/20"
+              className="px-4 py-2 bg-primary/80 text-white rounded hover:bg-primary/60 hover-target transition-colors shadow-lg hover:shadow-primary/20"
             >
               Play Again
             </button>
