@@ -18,66 +18,66 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Cloud Analytics Dashboard",
-    description: "A real-time analytics dashboard for cloud infrastructure monitoring with customizable widgets and alerts.",
-    image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
-    tech: ["React", "TypeScript", "D3.js", "AWS"],
-    github: "https://github.com",
-    demo: "https://example.com",
+    title: "Intelligent Q&A Extraction System",
+    description: "An advanced NLP-powered system that extracts questions and answers from unstructured text with high accuracy and contextual understanding.",
+    image: "https://images.unsplash.com/photo-1616628188550-808682f3926d?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    tech: ["Python", "Transformers", "BERT", "SpaCy", "TensorFlow"],
+    github: "#",
+    demo: "#",
     features: [
-      "Real-time data visualization with WebSockets",
-      "Custom dashboard builder with drag-and-drop",
-      "Alert system with notification preferences",
-      "Role-based access control",
-      "Exportable reports in multiple formats"
+      "Advanced NLP with transformer-based architecture for semantic understanding",
+      "Machine learning models fine-tuned for question identification and pairing",
+      "Context-aware extraction with 92% accuracy on complex documents",
+      "Multi-language support with dynamic ontology mapping",
+      "Self-improving system with feedback loops for continuous model training"
     ]
   },
   {
     id: 2,
-    title: "AI-Powered Task Manager",
-    description: "A task management application that uses AI to prioritize and categorize tasks, with natural language processing for task creation.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
-    tech: ["Next.js", "TensorFlow", "Node.js", "MongoDB"],
-    github: "https://github.com",
-    demo: "https://example.com",
+    title: "Immersive Virtual Event Platform",
+    description: "A groundbreaking virtual event platform with 3D environments, spatial audio, and real-time collaboration tools for truly immersive remote gatherings.",
+    image: "https://images.unsplash.com/photo-1550029402-226115b7c579?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    tech: ["WebGL", "Three.js", "WebRTC", "React", "Node.js", "Redis"],
+    github: "#",
+    demo: "#",
     features: [
-      "Natural language task creation",
-      "AI-powered task prioritization",
-      "Smart categorization based on task content",
-      "Productivity analytics and insights",
-      "Cross-platform synchronization"
+      "Custom 3D environment builder with real-time collaboration",
+      "Spatial audio integration that mimics real-world sound propagation",
+      "Dynamic networking algorithm for optimal attendee connections",
+      "AI-driven content recommendation based on interaction patterns",
+      "Real-time translation and accessibility features for global inclusivity"
     ]
   },
   {
     id: 3,
-    title: "Crypto Portfolio Tracker",
-    description: "A real-time cryptocurrency portfolio tracker with advanced charting, price alerts, and performance analytics.",
-    image: "https://images.unsplash.com/photo-1603969072881-b0fc7f3d6d8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
-    tech: ["Vue.js", "Firebase", "Chart.js", "REST APIs"],
-    github: "https://github.com",
-    demo: "https://example.com",
+    title: "Predictive Healthcare Analytics Platform",
+    description: "An innovative healthcare platform using machine learning to predict patient outcomes, optimize treatment plans, and improve care efficiency.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    tech: ["Python", "TensorFlow", "GraphQL", "React", "PostgreSQL", "Docker"],
+    github: "#",
+    demo: "#",
     features: [
-      "Real-time price tracking for 5000+ cryptocurrencies",
-      "Portfolio performance analytics with ROI calculations",
-      "Customizable price alerts and notifications",
-      "Historical data visualization with advanced charts",
-      "News aggregation and sentiment analysis"
+      "Privacy-preserving federated learning across medical institutions",
+      "Real-time risk stratification with explainable AI techniques",
+      "Custom medical ontology integration for domain-specific insights",
+      "Treatment optimization engine with personalized recommendations",
+      "Secure data handling compliant with HIPAA and GDPR regulations"
     ]
   },
   {
     id: 4,
-    title: "AR Shopping Experience",
-    description: "An augmented reality shopping app that allows users to visualize products in their space before purchasing.",
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80",
-    tech: ["React Native", "ARKit", "ARCore", "Redux"],
-    github: "https://github.com",
-    demo: "https://example.com",
+    title: "Autonomous Inventory Management System",
+    description: "A cutting-edge inventory management system using computer vision and IoT to automate stock tracking, predict shortages, and optimize supply chains.",
+    image: "https://images.unsplash.com/photo-1565430182015-5f53d77a5e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80",
+    tech: ["Computer Vision", "IoT", "React", "Node.js", "TensorFlow", "AWS"],
+    github: "#",
+    demo: "#",
     features: [
-      "Augmented reality product placement in real space",
-      "Accurate size and scale representation",
-      "Product customization in AR view",
-      "Social sharing of AR visualizations",
-      "Integration with multiple e-commerce platforms"
+      "Real-time inventory tracking through distributed IoT sensors",
+      "Computer vision for automatic product recognition and counting",
+      "Predictive analytics for demand forecasting and stock optimization",
+      "Supply chain integration with automatic reordering capabilities",
+      "Anomaly detection for shrinkage prevention and quality control"
     ]
   }
 ];
@@ -126,11 +126,6 @@ export const ProjectsSection = () => {
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="font-display font-semibold text-xl">{project.title}</h3>
-                  <div className="flex gap-2">
-                    <a href={project.demo} className="text-muted-foreground hover:text-primary transition-colors hover-target" aria-label="View live demo">
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
-                  </div>
                 </div>
                 
                 <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
