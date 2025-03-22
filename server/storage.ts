@@ -1,4 +1,4 @@
-import { users, type User, type InsertUser } from "@shared/schema";
+import { users, type User, type InsertUser, type VisitorStats } from "@shared/schema";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -7,14 +7,18 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  getVisitorCount(): Promise<number>;
+  incrementVisitorCount(): Promise<number>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
+  private visitorCount: number;
   currentId: number;
 
   constructor() {
     this.users = new Map();
+    this.visitorCount = 0;
     this.currentId = 1;
   }
 
@@ -33,6 +37,15 @@ export class MemStorage implements IStorage {
     const user: User = { ...insertUser, id };
     this.users.set(id, user);
     return user;
+  }
+
+  async getVisitorCount(): Promise<number> {
+    return this.visitorCount;
+  }
+
+  async incrementVisitorCount(): Promise<number> {
+    this.visitorCount++;
+    return this.visitorCount;
   }
 }
 
