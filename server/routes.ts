@@ -87,13 +87,22 @@ ${validatedData.message}
 
   app.post("/api/visitors/increment", async (req, res) => {
     try {
-      const count = await storage.incrementVisitorCount();
+      // Get client ID from request
+      const { clientId } = req.body;
+      
+      if (!clientId) {
+        return res.status(400).json({ message: "Client ID is required" });
+      }
+      
+      // Check if this is a new visit and increment if needed
+      const count = await storage.checkAndIncrementVisitorCount(clientId);
+      
       // Broadcast updated count to all connected WebSocket clients
       broadcastVisitorCount(count);
       res.status(200).json({ count });
     } catch (error) {
-      console.error("Error incrementing visitor count:", error);
-      res.status(500).json({ message: "Failed to increment visitor count" });
+      console.error("Error processing visitor count:", error);
+      res.status(500).json({ message: "Failed to process visitor count" });
     }
   });
 
