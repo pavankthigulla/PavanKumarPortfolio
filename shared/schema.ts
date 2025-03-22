@@ -26,10 +26,7 @@ export const contactSchema = z.object({
 
 export type ContactFormData = z.infer<typeof contactSchema>;
 
-// Visitor count schema
-export const visitorStats = pgTable("visitor_stats", {
-  id: serial("id").primaryKey(),
-  count: integer("count").notNull().default(0),
-});
-
-export type VisitorStats = typeof visitorStats.$inferSelect;
+// Visitor count interface (no database)
+export interface VisitorStats {
+  count: number;
+}
