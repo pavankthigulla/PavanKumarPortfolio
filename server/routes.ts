@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import { z } from "zod";
 import { contactSchema } from "@shared/schema";
 import nodemailer from "nodemailer";
-import { WebSocketServer } from 'ws';
+import { WebSocketServer, WebSocket } from 'ws';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form endpoint
@@ -103,7 +103,7 @@ ${validatedData.message}
   const wss = new WebSocketServer({ server: httpServer, path: '/ws' });
   
   // Store connected clients
-  const clients = new Set();
+  const clients = new Set<any>();
 
   wss.on('connection', (ws) => {
     console.log('WebSocket client connected');
@@ -111,7 +111,7 @@ ${validatedData.message}
 
     // Send current visitor count to new client
     storage.getVisitorCount().then(count => {
-      if (ws.readyState === ws.OPEN) {
+      if (ws.readyState === WebSocket.OPEN) {
         ws.send(JSON.stringify({ type: 'visitorCount', count }));
       }
     });
@@ -126,7 +126,7 @@ ${validatedData.message}
   function broadcastVisitorCount(count: number) {
     const message = JSON.stringify({ type: 'visitorCount', count });
     clients.forEach(client => {
-      if (client.readyState === client.OPEN) {
+      if (client.readyState === WebSocket.OPEN) {
         client.send(message);
       }
     });
