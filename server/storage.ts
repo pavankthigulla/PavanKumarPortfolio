@@ -42,12 +42,12 @@ export class MemStorage implements IStorage {
       if (fs.existsSync(VISITOR_COUNT_FILE)) {
         const data = fs.readFileSync(VISITOR_COUNT_FILE, 'utf-8');
         const parsed = JSON.parse(data);
-        this.visitorCount = parsed.count || 0;
+        this.visitorCount = parsed.count || 137; // Set to 137 as requested
         console.log(`Loaded visitor count from file: ${this.visitorCount}`);
       } else {
-        this.visitorCount = 0;
+        this.visitorCount = 137; // Set to 137 as requested
         this.saveVisitorCount();
-        console.log('Created new visitor count file');
+        console.log('Created new visitor count file with count: 137');
       }
 
       // Load visitor sessions
@@ -73,7 +73,7 @@ export class MemStorage implements IStorage {
       }
     } catch (error) {
       console.error('Error loading data from files:', error);
-      this.visitorCount = 0;
+      this.visitorCount = 137; // Set to 137 as requested
       // Continue with empty sessions
     }
     
