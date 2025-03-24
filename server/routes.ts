@@ -4,7 +4,6 @@ import { storage } from "./storage";
 import { z } from "zod";
 import { contactSchema } from "@shared/schema";
 import nodemailer from "nodemailer";
-import { WebSocketServer, WebSocket } from 'ws';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form endpoint
@@ -74,72 +73,7 @@ ${validatedData.message}
     }
   });
 
-  // Visitor counter endpoints
-  app.get("/api/visitors", async (req, res) => {
-    try {
-      const count = await storage.getVisitorCount();
-      res.status(200).json({ count });
-    } catch (error) {
-      console.error("Error getting visitor count:", error);
-      res.status(500).json({ message: "Failed to get visitor count" });
-    }
-  });
-
-  app.post("/api/visitors/increment", async (req, res) => {
-    try {
-      // Get client ID from request
-      const { clientId } = req.body;
-      
-      if (!clientId) {
-        return res.status(400).json({ message: "Client ID is required" });
-      }
-      
-      // Check if this is a new visit and increment if needed
-      const count = await storage.checkAndIncrementVisitorCount(clientId);
-      
-      // Broadcast updated count to all connected WebSocket clients
-      broadcastVisitorCount(count);
-      res.status(200).json({ count });
-    } catch (error) {
-      console.error("Error processing visitor count:", error);
-      res.status(500).json({ message: "Failed to process visitor count" });
-    }
-  });
-
   const httpServer = createServer(app);
-
-  // Initialize WebSocket server
-  const wss = new WebSocketServer({ server: httpServer, path: '/ws' });
-  
-  // Store connected clients
-  const clients = new Set<any>();
-
-  wss.on('connection', (ws) => {
-    console.log('WebSocket client connected');
-    clients.add(ws);
-
-    // Send current visitor count to new client
-    storage.getVisitorCount().then(count => {
-      if (ws.readyState === WebSocket.OPEN) {
-        ws.send(JSON.stringify({ type: 'visitorCount', count }));
-      }
-    });
-
-    ws.on('close', () => {
-      console.log('WebSocket client disconnected');
-      clients.delete(ws);
-    });
-  });
-
-  // Function to broadcast updated count to all connected WebSocket clients
-  function broadcastVisitorCount(count: number) {
-    const message = JSON.stringify({ type: 'visitorCount', count });
-    clients.forEach(client => {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(message);
-      }
-    });
-  }
 
   return httpServer;
 }

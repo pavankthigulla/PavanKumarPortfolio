@@ -1,19 +1,4 @@
-import { users, type User, type InsertUser, type VisitorStats } from "@shared/schema";
-import * as fs from 'fs';
-import * as path from 'path';
-
-// File paths for storing data
-const VISITOR_COUNT_FILE = path.join(process.cwd(), 'visitor-count.json');
-const VISITOR_SESSIONS_FILE = path.join(process.cwd(), 'visitor-sessions.json');
-
-// Session expiration time (1 hour in milliseconds)
-const SESSION_EXPIRATION = 60 * 60 * 1000; // 1 hour
-
-// Interface for tracking visitor sessions
-interface VisitorSession {
-  id: string; // Client ID (generated on client side)
-  timestamp: number; // Last visit timestamp
-}
+import { users, type User, type InsertUser } from "@shared/schema";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -21,15 +6,10 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  getVisitorCount(): Promise<number>;
-  checkAndIncrementVisitorCount(clientId: string): Promise<number>;
-  isNewVisitor(clientId: string): Promise<boolean>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
-  private visitorCount: number;
-  private visitorSessions: Map<string, number>; // clientId -> timestamp
   currentId: number;
 
   constructor() {
